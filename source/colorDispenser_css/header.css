@@ -1,7 +1,6 @@
 header {
     width: 100%;
     height: 70px;
-    background-color: #eeeeee;
     position: relative;
     display: flex;
     align-items: center;
@@ -10,24 +9,21 @@ header {
 
 .icon {
     width: 150px;
-    background-color: #dddddd;
     text-align: center;
 }
 
 nav {
     position: absolute;
-    right: 0px;
+    right: 50px;
     display: flex;
 }
 
 .help {
     width: 150px;
-    background-color: #999999;
     text-align: center;
 }
 
 .language {
     width: 150px;
-    background-color: #888888;
     text-align: center;
 }

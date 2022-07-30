@@ -1,7 +1,6 @@
 footer {
     width: 100%;
     height: 100px;
-    background-color: #eeeeee;
     position: relative;
     display: flex;
     box-shadow: -4px -4px 10px var(--black-shadow-color);
@@ -9,7 +8,6 @@ footer {
 
 .footer_left {
     width: 500px;
-    background-color: #aaaaaa;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +18,6 @@ footer {
     margin-right: 50px;
     position: absolute;
     right: 0px;
-    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
