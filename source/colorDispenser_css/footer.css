@@ -4,7 +4,7 @@ footer {
     background-color: #eeeeee;
     position: relative;
     display: flex;
-    box-shadow: -4px -4px 10px var(--white-shadow-color);
+    box-shadow: -4px -4px 10px var(--black-shadow-color);
 }
 
 .footer_left {

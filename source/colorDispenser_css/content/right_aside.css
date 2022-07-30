@@ -1,0 +1,24 @@
+.right_aside {
+    position: fixed;
+    right: 180px;
+    width: 300px;
+    height: 700px;
+    background-color: var(--background-color);
+    box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right_aside > .selected_color {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: #00aa00;
+    border: 20px solid var(--background-color);
+    border-radius: 30px;
+    box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
+    -4px -4px 10px var(--white-shadow-color);
+}
