@@ -7,7 +7,7 @@ section {
 }
 
 article {
-    width: 70%;
+    width: 65%;
     border: 20px solid var(--background-color);
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
