@@ -1,20 +1,19 @@
 header {
     width: 100%;
     height: 70px;
-    position: relative;
     display: flex;
     align-items: center;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color);
 }
 
 .icon {
+    flex: none;
     width: 150px;
     text-align: center;
 }
 
 nav {
-    position: absolute;
-    right: 50px;
+    margin-left: auto;
     display: flex;
 }
 
