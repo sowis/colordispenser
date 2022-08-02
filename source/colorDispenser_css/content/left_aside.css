@@ -1,5 +1,8 @@
 .left_aside {
-    position: fixed; 
+    position: sticky;
+    align-self: flex-start;
+    top: 10%;
+    padding: 15px;
     width: 200px;
     height: 700px;
     background-color: var(--background-color);
@@ -11,7 +14,6 @@
 }
 
 .left_aside > .magnify {
-    margin-top: 25px;
     width: 150px;
     height: 150px;
     background-color: #00aa00;
