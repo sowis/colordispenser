@@ -1,3 +1,7 @@
+// h: 0~360
+// s: 0~1
+// i: 0~255
+
 export function rgb_to_hsi(rgb) {
     const rgb_max = Math.max(rgb.r, rgb.g, rgb.b);
     const rgb_min = Math.min(rgb.r, rgb.g, rgb.b);
