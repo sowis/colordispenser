@@ -36,4 +36,9 @@
 .left_aside > .last_images > .last_image {
     margin-top: 14px;
     height: 80px;
+    transition-duration: 0.3s;
+}
+
+.left_aside > .last_images > .last_image:hover {
+    transform: scale(1.1);
 }
