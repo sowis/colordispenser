@@ -17,8 +17,3 @@ const totalThroughputCount = "api/totalThroughputCount"; // 처리한 이미지 
 // 프로퍼티로 totalThroughputCount: 처리한 이미지 총 개수 를 가진다
 // ex) { totalThroughputCount: 1523 };
 
-export {
-    colorDispenser,
-    totalThroughputSize,
-    totalThroughputCount,
-};
