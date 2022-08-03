@@ -21,6 +21,10 @@ article .current_image {
     width: 95%;
 }
 
+.current_image_dragover {
+    filter: blur(5px) opacity(30%);
+}
+
 article .file_upload_button {
     margin-top: 30px;
 }
