@@ -1,5 +1,5 @@
 const max_image_count = 5;
-const default_image = 'sample.jpg';
+const default_image = 'images/no_last_image.jpg';
 const last_images = [];
 const $last_images = document.querySelector('.last_images');
 
