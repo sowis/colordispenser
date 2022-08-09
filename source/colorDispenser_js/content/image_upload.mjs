@@ -2,15 +2,15 @@ import * as last_images from './last_images.mjs';
 
 document.querySelector('.file_upload_button').addEventListener('change', upload_event());
 
-// 메인 미리보기 이미지 표시
+// 업로드시 메인 미리보기 이미지 표시
 function upload_event(e) {
     const $input = document.querySelector('.file_upload_button');
     if($input.files && $input.files[0]) {
         const reader = new FileReader();
         reader.readAsDataURL($input.files[0]);
         reader.onload = e => {
-            const previewImage = document.querySelector('.current_image');
-            previewImage.src = e.target.result;
+            const $previewImage = document.querySelector('.current_image');
+            $previewImage.src = e.target.result;
         }
     }
 }

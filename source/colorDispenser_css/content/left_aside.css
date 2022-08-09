@@ -39,6 +39,6 @@
     transition-duration: 0.3s;
 }
 
-.left_aside > .last_images > .last_image:hover {
+.left_aside > .last_images > .last_image_clickable:hover {
     transform: scale(1.1);
 }

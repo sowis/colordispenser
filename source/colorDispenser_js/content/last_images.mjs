@@ -22,10 +22,21 @@ export function upload_new_image(files) {
             const $last_image = document.createElement('img');
             $last_image.classList.add('last_image');
             $last_image.src = image;
+
+            if (image != default_image) {
+                $last_image.classList.add('last_image_clickable');
+                $last_image.addEventListener('click', last_image_clicked);
+            }
+            
             fragment.appendChild($last_image);
         }
 
         $last_images.innerHTML = '';
         $last_images.appendChild(fragment);
     }
+}
+
+function last_image_clicked(e) {
+    const $previewImage = document.querySelector('.current_image');
+    $previewImage.src = e.srcElement.src;
 }
