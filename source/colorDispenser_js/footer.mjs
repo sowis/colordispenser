@@ -1,4 +1,5 @@
 import * as API from './API.mjs';
+import * as languages from '/colorDispenser_js/languages.mjs';
 
 function byte_formatting(byte) {
     const units = ['byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
@@ -12,12 +13,18 @@ function byte_formatting(byte) {
     return to_string(byte) + ' ' + units[unit_count];
 }
 
-function get_process_string() {
-    Promise.all([fetch(API.rest_2), fetch(API.rest_3)]).then(values => {
-        const byte_string = byte_formatting(+(values[0].result));
-        const process_string = "총 " + byte_string + ", " + values[1].result + " 개의 이미지 처리";
-        document.querySelector('footer .process_size').textContent = process_string;
+String.format = function() {
+	let args = arguments;
+	return args[0].replace(/{(\d+)}/g, function(match, num) {
+		num = Number(num) + 1;
+		return typeof(args[num]) != undefined ? args[num] : match;
     });
 }
 
-//get_process_string();
+function get_process_string() {
+    Promise.all([fetch(API.rest_2), fetch(API.rest_3)]).then(values => {
+        const byte_string = byte_formatting(+(values[0].result));
+        const process_string = languages.language_module.str_2.format(byte_string, values[1].result);
+        document.querySelector('footer .process_size').textContent = process_string;
+    });
+}

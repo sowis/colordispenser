@@ -1,5 +1,7 @@
+import * as image_uplolad from './image_upload.mjs';
+
 const max_image_count = 5;
-const default_image = 'images/no_last_image.jpg';
+const default_image = 'images/no_last_image.png';
 const last_images = [];
 const $last_images = document.querySelector('.last_images');
 

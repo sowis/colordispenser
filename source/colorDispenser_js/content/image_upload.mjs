@@ -1,4 +1,5 @@
 import * as last_images from './last_images.mjs';
+import * as languages from '/colorDispenser_js/languages.mjs';
 
 document.querySelector('.file_upload_button').addEventListener('change', upload_event());
 
@@ -40,7 +41,7 @@ document.querySelector('.current_image').addEventListener('drop', e => {
     const files = e.target.files || e.dataTransfer.files;
  
     if (files.length > 1) {
-        alert('하나의 이미지만 업로드 할 수 있습니다');
+        alert(languages.language_module.str_1);
         return;
     }
 
