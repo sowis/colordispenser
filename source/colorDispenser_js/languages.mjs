@@ -26,4 +26,6 @@ function set_default_language() {
     else {
         current_module_path = language_path + "english.json";
     }
+
+    current_module_path = language_path + "english.json";
 }
