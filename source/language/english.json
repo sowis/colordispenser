@@ -1,5 +1,8 @@
 {
+    "str_0": "english",
     "str_1": "You can only upload one image",
     "str_2": "total {0}, {1} image processing",
-    "str_3": "help"
+    "str_3": "help",
+    "str_4": "last images",
+    "str_5": "selected color"
 }

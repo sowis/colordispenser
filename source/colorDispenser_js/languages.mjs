@@ -14,6 +14,8 @@ export let language_module;
 function language_change(target_module) {
     language_module = target_module;
     document.querySelector('.help').textContent = language_module.str_3;
+    document.querySelector('.last_image_description').textContent = language_module.str_4;
+    document.querySelector('.selected_color_description').textContent = language_module.str_5;
 }
 
 function set_default_language() {
