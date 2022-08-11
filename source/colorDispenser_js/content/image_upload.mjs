@@ -59,6 +59,12 @@ function create_result(rgb) {
     return $result;
 }
 
+// 메인 이미지 드래그 방지
+document.querySelector('.current_image').addEventListener('dragstart', e => {
+    e.stopPropagation();
+    e.preventDefault();
+});
+
 document.querySelector('.current_image').addEventListener('dragenter', e => {
     e.stopPropagation();
     e.preventDefault();

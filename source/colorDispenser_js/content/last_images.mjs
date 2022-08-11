@@ -9,6 +9,15 @@ for (let i = 0; i < max_image_count; ++i) {
     last_images.push(default_image);
 }
 
+/* 기본 이미지들 드래그 금지 */
+for (const $last_image of $last_images.children) {
+    $last_image.addEventListener('dragstart', e => {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+}
+/****************************/
+
 export function upload_new_image(files) {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
@@ -29,6 +38,11 @@ export function upload_new_image(files) {
                 $last_image.classList.add('last_image_clickable');
                 $last_image.addEventListener('click', last_image_clicked);
             }
+
+            $last_image.addEventListener('dragstart', e => {
+                e.stopPropagation();
+                e.preventDefault();
+            });
             
             fragment.appendChild($last_image);
         }
