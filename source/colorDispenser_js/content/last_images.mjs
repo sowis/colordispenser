@@ -1,5 +1,3 @@
-import * as image_uplolad from './image_upload.mjs';
-
 const max_image_count = 5;
 const default_image = 'images/no_last_image.png';
 const last_images = [];
@@ -39,8 +37,6 @@ export function upload_new_image(files) {
             last_images.splice(same_image_index, 1);
         }
         /********************************************/
-
-
 
         last_images.unshift(e.target.result);
 

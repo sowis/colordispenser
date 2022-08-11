@@ -3,6 +3,8 @@ import * as languages from '/colorDispenser_js/languages.mjs';
 import * as API from '/colorDispenser_js/API.mjs';
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 
+const drag_and_drop_file_type = ['image/png', 'image/jpeg'];
+
 const $file_upload_button = document.querySelector('.file_upload_button');
 const $current_image = document.querySelector('.current_image');
 
@@ -97,6 +99,13 @@ $current_image.addEventListener('drop', e => {
         alert(languages.language_module.str_1);
         return;
     }
+    
+    /* 받아들일 수 없는 형식 걸러내기 */
+    if (drag_and_drop_file_type.indexOf(files[0].type) == -1) {
+        alert(languages.language_module.str_6);
+        return;
+    }
+    /**********************************/
 
     /* 업로드 버튼으로 업로드한 효과 내기 */
     $file_upload_button.files = files;
