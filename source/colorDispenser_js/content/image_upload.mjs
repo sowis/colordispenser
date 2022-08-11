@@ -3,33 +3,32 @@ import * as languages from '/colorDispenser_js/languages.mjs';
 import * as API from '/colorDispenser_js/API.mjs';
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 
-document.querySelector('.file_upload_button').addEventListener('change', upload_event());
+const $file_upload_button = document.querySelector('.file_upload_button');
+const $current_image = document.querySelector('.current_image');
+
+$file_upload_button.addEventListener('change', upload_event());
 
 // 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시
 function upload_event(e) {
-    const $input = document.querySelector('.file_upload_button');
-    if($input.files && $input.files[0]) {
+    if($file_upload_button.files && $file_upload_button.files[0]) {
         const reader = new FileReader();
-        reader.readAsDataURL($input.files[0]);
+        reader.readAsDataURL($file_upload_button.files[0]);
         reader.onload = e => {
-            const $previewImage = document.querySelector('.current_image');
-            if ($previewImage.src == e.target.result) { // 같은 이미지면 무시
+            if ($current_image.src == e.target.result) { // 같은 이미지면 무시
                 return;
             }
 
-            $previewImage.src = e.target.result;
+            $current_image.src = e.target.result;
 
-            send_file();
+            //send_file();
         }
     }
 }
 
 /* 메인 로직 수행 후 대표 색 & 추천 색 표시 */
 function send_file() {
-    const $input = document.querySelector('.file_upload_button');
-
     let data = new FormData();
-    data.append('file', $input.files[0]);
+    data.append('file', $file_upload_button.files[0]);
     fetch(API.rest_1, { method: 'POST', body: data })
     .then(res => res.json())
     .then(res => {
@@ -64,35 +63,35 @@ function create_result(rgb) {
 }
 
 // 메인 이미지 드래그 방지
-document.querySelector('.current_image').addEventListener('dragstart', e => {
+$current_image.addEventListener('dragstart', e => {
     e.stopPropagation();
     e.preventDefault();
 });
 
 /* 메인 이미지 드래그 이펙트 */
-document.querySelector('.current_image').addEventListener('dragenter', e => {
+$current_image.addEventListener('dragenter', e => {
     e.stopPropagation();
     e.preventDefault();
-    document.querySelector('.current_image').classList.add('current_image_dragover');
+    $current_image.classList.add('current_image_dragover');
 });
 
-document.querySelector('.current_image').addEventListener('dragover', e => {
+$current_image.addEventListener('dragover', e => {
     e.stopPropagation();
     e.preventDefault();
 });
 
-document.querySelector('.current_image').addEventListener('dragleave', e => {
+$current_image.addEventListener('dragleave', e => {
     e.stopPropagation();
     e.preventDefault();
-    document.querySelector('.current_image').classList.remove('current_image_dragover');
+    $current_image.classList.remove('current_image_dragover');
 });
 /********************************/
 
 /* 이미지를 드래그&드롭 했을 때 */
-document.querySelector('.current_image').addEventListener('drop', e => {
+$current_image.addEventListener('drop', e => {
     e.stopPropagation();
     e.preventDefault();
-    document.querySelector('.current_image').classList.remove('current_image_dragover');
+    $current_image.classList.remove('current_image_dragover');
 
     const files = e.target.files || e.dataTransfer.files;
  
@@ -101,7 +100,7 @@ document.querySelector('.current_image').addEventListener('drop', e => {
         return;
     }
 
-    document.querySelector('.file_upload_button').files = files;
+    $file_upload_button.files = files;
     upload_event();
     last_images.upload_new_image(files);
 });
