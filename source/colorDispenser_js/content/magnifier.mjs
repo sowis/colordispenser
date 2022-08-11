@@ -1,7 +1,8 @@
-const magnifier_pixel = 15; // 돋보기 픽셀의 약수로 하기
+const magnifier_pixel = 30; // 돋보기 픽셀의 약수로 하기
 
 let inner_buffer = document.createElement('canvas');
 const $magnifier = document.querySelector('.magnifier');
+const $mouse_color = document.querySelector('.mouse_color');
 
 document.querySelector('.current_image').addEventListener('mousemove', e => {
     magnification(e.offsetY, e.offsetX);
@@ -29,6 +30,11 @@ function magnification(mouse_y, mouse_x) {
     let ctx = $magnifier.getContext('2d');
     let image_data = ctx.createImageData($magnifier.width, $magnifier.height);
     let raster = image_data.data;
+
+    /* 현재 마우스 위치 색을 $mouse_color 에 그리기 */
+    const data = buffer_ctx.getImageData(mouse_x, mouse_y, 1, 1).data;
+    $mouse_color.style.backgroundColor = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]})`;
+    /************************************************/
 
     for (let offset_y = 0; offset_y < magnifier_pixel; ++offset_y) {
         for (let offset_x = 0; offset_x < magnifier_pixel; ++offset_x) {
