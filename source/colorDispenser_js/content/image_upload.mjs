@@ -6,7 +6,7 @@ import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 const $file_upload_button = document.querySelector('.file_upload_button');
 const $current_image = document.querySelector('.current_image');
 
-$file_upload_button.addEventListener('change', upload_event());
+$file_upload_button.addEventListener('change', upload_event);
 
 // 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시
 function upload_event(e) {
@@ -14,13 +14,11 @@ function upload_event(e) {
         const reader = new FileReader();
         reader.readAsDataURL($file_upload_button.files[0]);
         reader.onload = e => {
-            if ($current_image.src == e.target.result) { // 같은 이미지면 무시
-                return;
-            }
-
             $current_image.src = e.target.result;
 
             //send_file();
+
+            last_images.upload_new_image($file_upload_button.files);
         }
     }
 }
@@ -102,6 +100,5 @@ $current_image.addEventListener('drop', e => {
 
     $file_upload_button.files = files;
     upload_event();
-    last_images.upload_new_image(files);
 });
 /********************************/
