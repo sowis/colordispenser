@@ -8,7 +8,7 @@ const $current_image = document.querySelector('.current_image');
 
 $file_upload_button.addEventListener('change', upload_event);
 
-// 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시
+/* 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시 */
 function upload_event(e) {
     if($file_upload_button.files && $file_upload_button.files[0]) {
         const reader = new FileReader();
@@ -98,7 +98,9 @@ $current_image.addEventListener('drop', e => {
         return;
     }
 
+    /* 업로드 버튼으로 업로드한 효과 내기 */
     $file_upload_button.files = files;
     upload_event();
+    /**************************************/
 });
 /********************************/

@@ -26,6 +26,22 @@ export function upload_new_image(files) {
             return;
         }
 
+        /* 이전 이미지중에 같은 이미지가 있으면 삭제 */
+        let same_image_index = null;
+        for (let i = 1; i < max_image_count; ++i) {
+            if (e.target.result == last_images[i]) {
+                same_image_index = i;
+                break;
+            }
+        }
+
+        if (same_image_index != null) {
+            last_images.splice(same_image_index, 1);
+        }
+        /********************************************/
+
+
+
         last_images.unshift(e.target.result);
 
         if (last_images.length > max_image_count) {
