@@ -5,7 +5,7 @@ import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 
 document.querySelector('.file_upload_button').addEventListener('change', upload_event());
 
-// 업로드시 메인 미리보기 이미지 표시
+// 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시
 function upload_event(e) {
     const $input = document.querySelector('.file_upload_button');
     if($input.files && $input.files[0]) {
@@ -13,6 +13,10 @@ function upload_event(e) {
         reader.readAsDataURL($input.files[0]);
         reader.onload = e => {
             const $previewImage = document.querySelector('.current_image');
+            if ($previewImage.src == e.target.result) { // 같은 이미지면 무시
+                return;
+            }
+
             $previewImage.src = e.target.result;
 
             send_file();
@@ -20,7 +24,7 @@ function upload_event(e) {
     }
 }
 
-/* 메인 로직 수행 후 표시 */
+/* 메인 로직 수행 후 대표 색 & 추천 색 표시 */
 function send_file() {
     const $input = document.querySelector('.file_upload_button');
 
@@ -65,6 +69,7 @@ document.querySelector('.current_image').addEventListener('dragstart', e => {
     e.preventDefault();
 });
 
+/* 메인 이미지 드래그 이펙트 */
 document.querySelector('.current_image').addEventListener('dragenter', e => {
     e.stopPropagation();
     e.preventDefault();
@@ -81,7 +86,9 @@ document.querySelector('.current_image').addEventListener('dragleave', e => {
     e.preventDefault();
     document.querySelector('.current_image').classList.remove('current_image_dragover');
 });
+/********************************/
 
+/* 이미지를 드래그&드롭 했을 때 */
 document.querySelector('.current_image').addEventListener('drop', e => {
     e.stopPropagation();
     e.preventDefault();
@@ -98,3 +105,4 @@ document.querySelector('.current_image').addEventListener('drop', e => {
     upload_event();
     last_images.upload_new_image(files);
 });
+/********************************/

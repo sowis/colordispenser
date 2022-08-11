@@ -22,6 +22,10 @@ export function upload_new_image(files) {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = e => {
+        if (e.target.result == last_images[0]) { // 같은 이미지면 무시
+            return;
+        }
+
         last_images.unshift(e.target.result);
 
         if (last_images.length > max_image_count) {
