@@ -1,5 +1,7 @@
 import * as last_images from './last_images.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
+import * as API from '/colorDispenser_js/API.mjs';
+import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 
 document.querySelector('.file_upload_button').addEventListener('change', upload_event());
 
@@ -12,8 +14,49 @@ function upload_event(e) {
         reader.onload = e => {
             const $previewImage = document.querySelector('.current_image');
             $previewImage.src = e.target.result;
+
+            send_file();
         }
     }
+}
+
+/* 메인 로직 수행 후 표시 */
+function send_file() {
+    const $input = document.querySelector('.file_upload_button');
+
+    let data = new FormData();
+    data.append('file', $input.files[0]);
+    fetch(API.rest_1, { method: 'POST', body: data })
+    .then(res => res.json())
+    .then(res => {
+        let $results = document.createDocumentFragment();
+
+        for (const rgb of res) {
+            const $result = create_result(rgb);
+            $results.appendChild($result);
+        }
+
+        let $dispenser = document.querySelector('.dispenser');
+        $dispenser.innerHTML = '';
+        $dispenser.appendChild($results);
+    });
+}
+
+/* $result 생성 */
+function create_result(rgb) {
+    const $result = document.createElement('div');
+    $result.classList.add('result');
+
+    const $result_color = document.createElement('div');
+    $result_color.classList.add('result_color');
+    $result_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+    const $color_chips = similar_color.create_similar_colors(rgb);
+    
+    $result.appendChild($result_color);
+    $result.appendChild($color_chips);
+
+    return $result;
 }
 
 document.querySelector('.current_image').addEventListener('dragenter', e => {

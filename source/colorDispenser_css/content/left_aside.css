@@ -13,10 +13,9 @@
     flex-direction: column;
 }
 
-.left_aside > .magnify {
+.left_aside > .magnifier {
     width: 150px;
     height: 150px;
-    background-color: #00aa00;
     border: 10px solid var(--background-color);
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),

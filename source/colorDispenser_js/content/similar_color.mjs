@@ -12,7 +12,7 @@ export function create_color_chips(rgb) {
     for (const hue_change of similar_colors.hue_changes) {
         const $hue_chip = document.createElement('div');
         $hue_chip.classList.add('color_chip');
-        $hue_chip.style.backgroundColor = rgba(hue_change.r, hue_change.g, hue_change.b);
+        $hue_chip.style.backgroundColor = `rgb(${hue_change.r}, ${hue_change.g}, ${hue_change.b})`;
         $hue_chips.appendChild($hue_chip);
     }
 
@@ -21,7 +21,7 @@ export function create_color_chips(rgb) {
     for (const saturation_change of similar_colors.saturation_changes) {
         const $saturation_chip = document.createElement('div');
         $saturation_chip.classList.add('color_chip');
-        $saturation_chip.style.backgroundColor = rgba(saturation_change.r, saturation_change.g, saturation_change.b);
+        $saturation_chip.style.backgroundColor = `rgb(${saturation_change.r}, ${saturation_change.g}, ${saturation_change.b})`;
         $saturation_chips.appendChild($saturation_chip);
     }
 
@@ -30,7 +30,7 @@ export function create_color_chips(rgb) {
     for (const intensity_change of similar_colors.intensity_changes) {
         const $intensity_chip = document.createElement('div');
         $intensity_chip.classList.add('color_chip');
-        $intensity_chip.style.backgroundColor = rgba(intensity_change.r, intensity_change.g, intensity_change.b);
+        $intensity_chip.style.backgroundColor = `rgb(${intensity_change.r}, ${intensity_change.g}, ${intensity_change.b})`;
         $intensity_chips.appendChild($intensity_chip);
     }
 
