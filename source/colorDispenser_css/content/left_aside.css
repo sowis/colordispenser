@@ -4,7 +4,7 @@
     top: 10%;
     padding: 15px;
     width: 200px;
-    height: 700px;
+    
     background-color: var(--background-color);
     box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.2);
     border-radius: 40px;
@@ -20,24 +20,4 @@
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
-}
-
-.left_aside > .last_image_description {
-    margin-top: 20px;
-}
-
-.left_aside > .last_images {
-    display: flex;
-    flex-direction : column;
-    align-items: center;
-}
-
-.left_aside > .last_images > .last_image {
-    margin-top: 14px;
-    height: 80px;
-    transition-duration: 0.3s;
-}
-
-.left_aside > .last_images > .last_image_clickable:hover {
-    transform: scale(1.1);
 }

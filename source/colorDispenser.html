@@ -9,7 +9,10 @@
         <link rel="stylesheet" href="colorDispenser_css/content/content.css">
         <link rel="stylesheet" href="colorDispenser_css/content/left_aside.css">
         <link rel="stylesheet" href="colorDispenser_css/content/right_aside.css">
-        <link rel="stylesheet" href="colorDispenser_css/content/section.css">
+        <link rel="stylesheet" href="colorDispenser_css/content/section/section.css">
+        <link rel="stylesheet" href="colorDispenser_css/content/section/main_image.css">
+        <link rel="stylesheet" href="colorDispenser_css/content/section/last_images.css">
+        <link rel="stylesheet" href="colorDispenser_css/content/section/dispenser.css">
         <link rel="stylesheet" href="colorDispenser_css/footer.css">
     </head>
     <body>
@@ -23,21 +26,24 @@
         <content>
             <aside class="left_aside">
                 <canvas class="magnifier"></canvas>
-                <div class="last_image_description">이전 이미지</div>
-                <div class="last_images">
-                    <image class="last_image" src="images/no_last_image.png"></image>
-                    <image class="last_image" src="images/no_last_image.png"></image>
-                    <image class="last_image" src="images/no_last_image.png"></image>
-                    <image class="last_image" src="images/no_last_image.png"></image>
-                    <image class="last_image" src="images/no_last_image.png"></image>
-                </div>
             </aside>
             <section> 
                 <article>
                     <image src="images/default.jpg" class="current_image"></image>
                     <input type="file" accept="image/jpeg, image/png" class="file_upload_button">
+
+                    <div class="last_image_box">
+                        <div class="last_image_description">이전 이미지</div>
+                        <div class="last_images">
+                            <image class="last_image" src="images/no_last_image.png"></image>
+                            <image class="last_image" src="images/no_last_image.png"></image>
+                            <image class="last_image" src="images/no_last_image.png"></image>
+                            <image class="last_image" src="images/no_last_image.png"></image>
+                            <image class="last_image" src="images/no_last_image.png"></image>
+                        </div>
+                    </div>
+
                     <div class="dispenser">
-
                         <div class="result">
                             <div class="result_color"></div>
                             <div class="color_chips">
@@ -67,210 +73,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="result">
-                            <div class="result_color"></div>
-                            <div class="color_chips">
-                                <div class="hue_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="saturation_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                                <div class="intensity_chips">
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                    <div class="color_chip"></div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </article>
             </section>
