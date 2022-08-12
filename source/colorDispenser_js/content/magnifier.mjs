@@ -23,7 +23,7 @@ $current_image.addEventListener('contextmenu', e => {
     let buffer_ctx = inner_buffer.getContext('2d');
     const data = buffer_ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
     const rgb = {r: data[0], g: data[1], b: data[2]};
-    palette.palette_add(rgb);
+    palette.palette_add_rgb(rgb);
 });
 
 /* 아무 키나 눌렀을 때 이미지를 버퍼로 복사. f10등으로 화면 크기가 변하는 경우를 대응하기 위해 */

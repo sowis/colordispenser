@@ -34,9 +34,14 @@ function palette_event_link() {
     }
 }
 
+export function palette_add_rgb(rgb) {
+    const backgroundColor = rgb_to_background_string(rgb);
+    palette_add_backgroundColor(backgroundColor);
+}
+
 /* 팔레트에 새 색상 추가 */
-export function palette_add(rgb) {
-    const color = rgb_to_background_string(rgb);
+export function palette_add_backgroundColor(backgroundColor) {
+    const color = backgroundColor;
 
     /* 빈 팔레트 공간이 있는지 검사 */
     let idx = -1;

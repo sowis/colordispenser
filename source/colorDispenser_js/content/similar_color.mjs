@@ -1,4 +1,5 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
+import * as palette from '/colorDispenser_js/content/palette.mjs';
 
 // h: 0~360
 // s: 0~1
@@ -17,6 +18,7 @@ export function create_color_chips(rgb) {
         $hue_chip.style.backgroundColor = `rgb(${hue_change.r}, ${hue_change.g}, ${hue_change.b})`;
         $hue_chip.addEventListener('mouseenter', chip_mouse_enter);
         $hue_chip.addEventListener('click', chip_click);
+        $hue_chip.addEventListener('contextmenu', chip_rightclick);
         $hue_chips.appendChild($hue_chip);
     }
 
@@ -28,6 +30,7 @@ export function create_color_chips(rgb) {
         $saturation_chip.style.backgroundColor = `rgb(${saturation_change.r}, ${saturation_change.g}, ${saturation_change.b})`;
         $saturation_chip.addEventListener('mouseenter', chip_mouse_enter);
         $saturation_chip.addEventListener('click', chip_click);
+        $saturation_chip.addEventListener('contextmenu', chip_rightclick);
         $saturation_chips.appendChild($saturation_chip);
     }
 
@@ -39,6 +42,7 @@ export function create_color_chips(rgb) {
         $intensity_chip.style.backgroundColor = `rgb(${intensity_change.r}, ${intensity_change.g}, ${intensity_change.b})`;
         $intensity_chip.addEventListener('mouseenter', chip_mouse_enter);
         $intensity_chip.addEventListener('click', chip_click);
+        $intensity_chip.addEventListener('contextmenu', chip_rightclick);
         $intensity_chips.appendChild($intensity_chip);
     }
 
@@ -61,6 +65,15 @@ function chip_mouse_enter(e) {
 function chip_click(e) {
     const rgb = background_string_to_rgb(e.target.style.backgroundColor);
     selected_color.set_selected_color(rgb);
+}
+
+/* 칩 우클릭시 팔레트로 감 */
+function chip_rightclick(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const color = e.target.style.backgroundColor;
+    palette.palette_add_backgroundColor(color);
 }
 
 function rgb_to_hsi(rgb) {
