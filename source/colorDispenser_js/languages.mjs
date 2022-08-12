@@ -16,6 +16,7 @@ function language_change(target_module) {
     document.querySelector('.help').textContent = language_module.str_3;
     document.querySelector('.last_image_description').textContent = language_module.str_4;
     document.querySelector('.selected_color_description').textContent = language_module.str_5;
+    document.querySelector('.palette_description').textContent = language_module.str_7;
 }
 
 function set_default_language() {
