@@ -1,4 +1,6 @@
-const magnifier_pixel = 30; // 돋보기 픽셀의 약수로 하기
+import * as palette from '/colorDispenser_js/content/palette.mjs';
+
+const magnifier_pixel = 15; // 돋보기 픽셀의 약수로 하기
 
 let inner_buffer = document.createElement('canvas');
 const $magnifier = document.querySelector('.magnifier');
@@ -11,6 +13,17 @@ $current_image.addEventListener('mousemove', e => {
 
 $current_image.addEventListener('mouseover', e => {
     image_to_canvas();
+});
+
+/* 이미지 우클릭시 그 색상 팔레트로 감 */
+$current_image.addEventListener('contextmenu', e => {
+    e.stopPropagation();
+    e.preventDefault();
+    
+    let buffer_ctx = inner_buffer.getContext('2d');
+    const data = buffer_ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
+    const rgb = {r: data[0], g: data[1], b: data[2]};
+    palette.palette_add(rgb);
 });
 
 /* 아무 키나 눌렀을 때 이미지를 버퍼로 복사. f10등으로 화면 크기가 변하는 경우를 대응하기 위해 */
