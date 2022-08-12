@@ -19,7 +19,7 @@ function upload_event(e) {
         reader.onload = e => {
             $current_image.src = e.target.result;
 
-            //send_file();
+            send_file();
 
             last_images.upload_new_image($file_upload_button.files);
         }
