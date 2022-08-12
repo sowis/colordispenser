@@ -1,3 +1,5 @@
+import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
+
 // h: 0~360
 // s: 0~1
 // i: 0~255
@@ -14,6 +16,7 @@ export function create_color_chips(rgb) {
         $hue_chip.classList.add('color_chip');
         $hue_chip.style.backgroundColor = `rgb(${hue_change.r}, ${hue_change.g}, ${hue_change.b})`;
         $hue_chip.addEventListener('mouseenter', chip_mouse_enter);
+        $hue_chip.addEventListener('click', chip_click);
         $hue_chips.appendChild($hue_chip);
     }
 
@@ -24,6 +27,7 @@ export function create_color_chips(rgb) {
         $saturation_chip.classList.add('color_chip');
         $saturation_chip.style.backgroundColor = `rgb(${saturation_change.r}, ${saturation_change.g}, ${saturation_change.b})`;
         $saturation_chip.addEventListener('mouseenter', chip_mouse_enter);
+        $saturation_chip.addEventListener('click', chip_click);
         $saturation_chips.appendChild($saturation_chip);
     }
 
@@ -34,6 +38,7 @@ export function create_color_chips(rgb) {
         $intensity_chip.classList.add('color_chip');
         $intensity_chip.style.backgroundColor = `rgb(${intensity_change.r}, ${intensity_change.g}, ${intensity_change.b})`;
         $intensity_chip.addEventListener('mouseenter', chip_mouse_enter);
+        $intensity_chip.addEventListener('click', chip_click);
         $intensity_chips.appendChild($intensity_chip);
     }
 
@@ -50,6 +55,12 @@ export function create_color_chips(rgb) {
 /* 칩에 커서가 들어왔을 때 마우스 위치색으로 표시 */
 function chip_mouse_enter(e) {
     document.querySelector('.mouse_color').style.backgroundColor = e.target.style.backgroundColor;
+}
+
+/* 칩 클릭시 선택된 색으로 지정됨 */
+function chip_click(e) {
+    const rgb = background_string_to_rgb(e.target.style.backgroundColor);
+    selected_color.set_selected_color(rgb);
 }
 
 function rgb_to_hsi(rgb) {
@@ -136,4 +147,15 @@ function similar_color(rgb) {
     }
 
     return { hue_changes, saturation_changes, intensity_changes };
+}
+
+/* backgroundcolor 문자열을 {r:123, g:252, b:111} 객체로 변환 */
+function background_string_to_rgb(str) {
+    const middle = (str.split('(')[1]).split(')')[0];
+    const arr = middle.split(',');
+    const rgb = {};
+    rgb.r = parseInt(arr[0]);
+    rgb.g = parseInt(arr[1]);
+    rgb.b = parseInt(arr[2]);
+    return rgb;
 }
