@@ -13,11 +13,31 @@
     flex-direction: column;
 }
 
-.left_aside > .magnifier {
+.magnifier {
     width: 150px;
     height: 150px;
     border: 10px solid var(--background-color);
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
+}
+
+.palette_description {
+    margin-top: 30px;
+}
+
+.palette {
+    margin-top: 10px;
+    width: 120px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.palette_chip {
+    width: 32px;
+    height:21px;
+    background-color: #00aa00;
 }
