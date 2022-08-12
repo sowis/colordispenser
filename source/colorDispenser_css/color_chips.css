@@ -23,5 +23,5 @@
     border: 1px solid var(--background-color);
     border-radius: 5px;
     box-shadow: 3px 3px 1px 0 var(--black-shadow-color),
-    -3px -3px 1px var(--white-shadow-color);
+    -3px -3px 1px rgba(255, 255, 255, 0.6);
 }
