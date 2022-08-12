@@ -13,6 +13,7 @@ export function create_color_chips(rgb) {
         const $hue_chip = document.createElement('div');
         $hue_chip.classList.add('color_chip');
         $hue_chip.style.backgroundColor = `rgb(${hue_change.r}, ${hue_change.g}, ${hue_change.b})`;
+        $hue_chip.addEventListener('mouseenter', chip_mouse_enter);
         $hue_chips.appendChild($hue_chip);
     }
 
@@ -22,6 +23,7 @@ export function create_color_chips(rgb) {
         const $saturation_chip = document.createElement('div');
         $saturation_chip.classList.add('color_chip');
         $saturation_chip.style.backgroundColor = `rgb(${saturation_change.r}, ${saturation_change.g}, ${saturation_change.b})`;
+        $saturation_chip.addEventListener('mouseenter', chip_mouse_enter);
         $saturation_chips.appendChild($saturation_chip);
     }
 
@@ -31,6 +33,7 @@ export function create_color_chips(rgb) {
         const $intensity_chip = document.createElement('div');
         $intensity_chip.classList.add('color_chip');
         $intensity_chip.style.backgroundColor = `rgb(${intensity_change.r}, ${intensity_change.g}, ${intensity_change.b})`;
+        $intensity_chip.addEventListener('mouseenter', chip_mouse_enter);
         $intensity_chips.appendChild($intensity_chip);
     }
 
@@ -42,6 +45,11 @@ export function create_color_chips(rgb) {
     $color_chips.appendChild($intensity_chips);
 
     return $color_chips;
+}
+
+/* 칩에 커서가 들어왔을 때 마우스 위치색으로 표시 */
+function chip_mouse_enter(e) {
+    document.querySelector('.mouse_color').style.backgroundColor = e.target.style.backgroundColor;
 }
 
 function rgb_to_hsi(rgb) {

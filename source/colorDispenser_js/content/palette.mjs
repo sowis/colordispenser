@@ -84,6 +84,7 @@ function palette_chip_click(e) {
     selected_color.set_selected_color(background_string_to_rgb(palette_colors[idx]));
 }
 
+/* 칩에 마우스 올리면 현재색으로 표시 */
 function palette_chip_mouse_in(e) {
     $mouse_color.style.backgroundColor = e.target.style.backgroundColor;
 }
