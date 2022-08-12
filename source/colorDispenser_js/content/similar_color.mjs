@@ -124,7 +124,7 @@ function similar_color(rgb) {
     for (let i = 0; i < recomend_number; ++i) {
         const new_hsi = { ...hsi };
         new_hsi.i = (255 / (recomend_number - 1)) * i;
-        intensity_changes.push(hsi_to_rgb(new_hsi));
+        intensity_changes.unshift(hsi_to_rgb(new_hsi));
     }
 
     return { hue_changes, saturation_changes, intensity_changes };
