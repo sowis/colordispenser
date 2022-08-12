@@ -3,22 +3,27 @@ const magnifier_pixel = 30; // 돋보기 픽셀의 약수로 하기
 let inner_buffer = document.createElement('canvas');
 const $magnifier = document.querySelector('.magnifier');
 const $mouse_color = document.querySelector('.mouse_color');
+const $current_image = document.querySelector('.current_image');
 
-document.querySelector('.current_image').addEventListener('mousemove', e => {
+$current_image.addEventListener('mousemove', e => {
     magnification(e.offsetY, e.offsetX);
 });
 
-document.querySelector('.current_image').addEventListener('mouseover', e => {
+$current_image.addEventListener('mouseover', e => {
+    image_to_canvas();
+});
+
+/* 아무 키나 눌렀을 때 이미지를 버퍼로 복사. f10등으로 화면 크기가 변하는 경우를 대응하기 위해 */
+document.querySelector('body').addEventListener('keyup', e => {
     image_to_canvas();
 });
 
 /* 현재이미지 버퍼에 복사 */
 function image_to_canvas() {
-    const $image = document.querySelector('.current_image');
-    inner_buffer.width = $image.clientWidth;
-    inner_buffer.height = $image.clientHeight;
+    inner_buffer.width = $current_image.clientWidth;
+    inner_buffer.height = $current_image.clientHeight;
     const ctx = inner_buffer.getContext('2d');
-    ctx.drawImage($image, 0, 0, $image.clientWidth, $image.clientHeight);
+    ctx.drawImage($current_image, 0, 0, $current_image.clientWidth, $current_image.clientHeight);
 }
 
 /* 돋보기 이미지 그리기 */
