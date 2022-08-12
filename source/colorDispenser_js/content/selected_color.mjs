@@ -13,6 +13,11 @@ $current_image.addEventListener('mouseover', e => {
     image_to_canvas();
 });
 
+/* 선택된 색에 마우스 올리면 현재색에 올라감 */
+$selected_color.addEventListener('mouseover', e => {
+    document.querySelector('.mouse_color').style.backgroundColor = e.target.style.backgroundColor;
+});
+
 /* 선택된 색 우클릭시 팔레트에 추가 */
 $selected_color.addEventListener('contextmenu', e => {
     e.stopPropagation();
