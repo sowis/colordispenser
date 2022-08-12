@@ -5,6 +5,8 @@ const $selected_color = document.querySelector('.selected_color');
 const inner_buffer = document.createElement('canvas');
 const $current_image = document.querySelector('.current_image');
 
+set_selected_color({r:255, g:233, b:218}); // 선택 색 초기색상
+
 $current_image.addEventListener('click', e => {
     img_color_select(e.offsetY, e.offsetX);
 });
