@@ -1,7 +1,7 @@
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 
-let $selected_color = document.querySelector('.selected_color');
-let inner_buffer = document.createElement('canvas');
+const $selected_color = document.querySelector('.selected_color');
+const inner_buffer = document.createElement('canvas');
 
 document.querySelector('.current_image').addEventListener('click', e => {
     img_color_select(e.offsetY, e.offsetX);

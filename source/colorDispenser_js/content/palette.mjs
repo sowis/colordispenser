@@ -4,6 +4,7 @@ const palette_chip_default_color = '#00aa00';
 
 const $palette = document.querySelector('.palette');
 const palette_chip_count = $palette.children.length;
+const $mouse_color = document.querySelector('.mouse_color');
 
 const palette_colors = []; // 색(backgroundColor)
 const validations = []; // 활성화/비활성화
@@ -29,6 +30,7 @@ function palette_event_link() {
     for (const $palette_chip of $palette.children) {
         $palette_chip.addEventListener('click', palette_chip_click);
         $palette_chip.addEventListener('contextmenu', palette_chip_disable);
+        $palette_chip.addEventListener('mouseover', palette_chip_mouse_in);
     }
 }
 
@@ -80,6 +82,10 @@ function palette_chip_click(e) {
 
     last_use_time[idx] = new Date();
     selected_color.set_selected_color(background_string_to_rgb(palette_colors[idx]));
+}
+
+function palette_chip_mouse_in(e) {
+    $mouse_color.style.backgroundColor = e.target.style.backgroundColor;
 }
 
 /* 팔레트 칩에서 우클릭시 그 칩은 초기상태로 돌아감 */

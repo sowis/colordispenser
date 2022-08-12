@@ -19,7 +19,7 @@ $current_image.addEventListener('mouseover', e => {
 $current_image.addEventListener('contextmenu', e => {
     e.stopPropagation();
     e.preventDefault();
-    
+
     let buffer_ctx = inner_buffer.getContext('2d');
     const data = buffer_ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
     const rgb = {r: data[0], g: data[1], b: data[2]};
@@ -49,7 +49,7 @@ function magnification(mouse_y, mouse_x) {
     let image_data = ctx.createImageData($magnifier.width, $magnifier.height);
     let raster = image_data.data;
 
-    /* 현재 마우스 위치 색을 $mouse_color 에 그리기 */
+    /* 이미지 위의 현재 마우스 위치 색을 $mouse_color 에 그리기 */
     const data = buffer_ctx.getImageData(mouse_x, mouse_y, 1, 1).data;
     $mouse_color.style.backgroundColor = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]})`;
     /************************************************/
