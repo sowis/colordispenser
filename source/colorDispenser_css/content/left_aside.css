@@ -39,7 +39,6 @@
 .palette_chip {
     width: 32px;
     height:21px;
-    background-color: #00aa00;
     border: 1px solid var(--background-color);
     border-radius: 5px;
     box-shadow: 3px 3px 1px 0 var(--black-shadow-color),

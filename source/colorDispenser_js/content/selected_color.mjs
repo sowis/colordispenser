@@ -31,7 +31,7 @@ function img_color_select(mouse_y, mouse_x) {
 }
 
 /* 선택한 색 표시 */
-function set_selected_color(rgb) {
+export function set_selected_color(rgb) {
     $selected_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 
     const $new_color_chips = similar_color.create_color_chips(rgb);
