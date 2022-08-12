@@ -1,6 +1,7 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 
 const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
+const void_palette_image = '/images/void_palette.png';
 
 const $palette = document.querySelector('.palette');
 const palette_chip_count = $palette.children.length;
@@ -19,6 +20,7 @@ const $palette_chips = []; // 팔레트 칩 DOM
 function palette_init() {
     for (const $palette_chip of $palette.children) {
         $palette_chip.style.backgroundColor = palette_chip_default_color;
+        $palette_chip.style.backgroundImage = `url(${void_palette_image})`;
         palette_colors.push($palette_chip.style.backgroundColor);
         validations.push(false);
         last_use_time.push(new Date());
@@ -73,6 +75,7 @@ export function palette_add_backgroundColor(backgroundColor) {
     validations[idx] = true;
     last_use_time[idx] = new Date();
     $palette_chips[idx].style.backgroundColor = color;
+    $palette_chips[idx].style.backgroundImage = '';
 }
 
 /* 팔레트 칩 클릭시 선택된 색으로 지정 */
@@ -102,6 +105,7 @@ function palette_chip_disable(e) {
     const idx = $palette_chips.indexOf(e.srcElement);
     validations[idx] = false;
     last_use_time[idx] = new Date();
+    $palette_chips[idx].style.backgroundImage = `url(${void_palette_image})`;
     $palette_chips[idx].style.backgroundColor = palette_chip_default_color;
     palette_colors[idx] = palette_chip_default_color;
 }
