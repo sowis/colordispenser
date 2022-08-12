@@ -71,4 +71,5 @@ export function upload_new_image(files) {
 function last_image_clicked(e) {
     const $previewImage = document.querySelector('.current_image');
     $previewImage.src = e.srcElement.src;
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" }); // 맨 위로 스크롤
 }
