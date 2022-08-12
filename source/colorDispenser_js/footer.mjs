@@ -1,6 +1,10 @@
 import * as API from './API.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
 
+(function main() {
+    //set_process_string();
+})();
+
 function byte_formatting(byte) {
     const units = ['byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
     let unit_count = 0;
@@ -21,7 +25,7 @@ String.format = function() {
     });
 }
 
-function get_process_string() {
+function set_process_string() {
     Promise.all([fetch(API.rest_2), fetch(API.rest_3)]).then(values => {
         const byte_string = byte_formatting(+(values[0].result));
         const process_string = languages.language_module.str_2.format(byte_string, values[1].result);
