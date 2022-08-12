@@ -1,6 +1,6 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 
-const palette_chip_default_color = '#00aa00';
+const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
 
 const $palette = document.querySelector('.palette');
 const palette_chip_count = $palette.children.length;
