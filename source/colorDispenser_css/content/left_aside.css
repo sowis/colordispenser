@@ -13,6 +13,10 @@
     flex-direction: column;
 }
 
+.magnifier_description {
+    margin-bottom: 10px;
+}
+
 .magnifier {
     width: 150px;
     height: 150px;

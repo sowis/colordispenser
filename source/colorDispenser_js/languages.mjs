@@ -17,6 +17,8 @@ function language_change(target_module) {
     document.querySelector('.last_image_description').textContent = language_module.str_4;
     document.querySelector('.selected_color_description').textContent = language_module.str_5;
     document.querySelector('.palette_description').textContent = language_module.str_7;
+    document.querySelector('.magnifier_description').textContent = language_module.str_8;
+    document.querySelector('.mouse_color_description').textContent = language_module.str_9;
 }
 
 function set_default_language() {

@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+.right_aside .mouse_color_description {
+    margin-bottom: 10px;
+}
+
 .right_aside .mouse_color {
     width: 150px;
     height: 150px;
