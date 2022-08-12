@@ -76,6 +76,7 @@ export function palette_add_backgroundColor(backgroundColor) {
     last_use_time[idx] = new Date();
     $palette_chips[idx].style.backgroundColor = color;
     $palette_chips[idx].style.backgroundImage = '';
+    $palette_chips[idx].classList.add('palette_chip_clickable');
 }
 
 /* 팔레트 칩 클릭시 선택된 색으로 지정 */
@@ -107,6 +108,7 @@ function palette_chip_disable(e) {
     last_use_time[idx] = new Date();
     $palette_chips[idx].style.backgroundImage = `url(${void_palette_image})`;
     $palette_chips[idx].style.backgroundColor = palette_chip_default_color;
+    $palette_chips[idx].classList.remove('palette_chip_clickable');
     palette_colors[idx] = palette_chip_default_color;
 }
 
