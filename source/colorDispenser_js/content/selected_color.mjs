@@ -1,23 +1,33 @@
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
+import * as palette from '/colorDispenser_js/content/palette.mjs';
 
 const $selected_color = document.querySelector('.selected_color');
 const inner_buffer = document.createElement('canvas');
+const $current_image = document.querySelector('.current_image');
 
-document.querySelector('.current_image').addEventListener('click', e => {
+$current_image.addEventListener('click', e => {
     img_color_select(e.offsetY, e.offsetX);
 });
 
-document.querySelector('.current_image').addEventListener('mouseover', e => {
+$current_image.addEventListener('mouseover', e => {
     image_to_canvas();
+});
+
+/* 선택된 색 우클릭시 팔레트에 추가 */
+$selected_color.addEventListener('contextmenu', e => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const color = e.target.style.backgroundColor;
+    palette.palette_add_backgroundColor(color);
 });
 
 /* 현재이미지 버퍼에 복사 */
 function image_to_canvas() {
-    const $image = document.querySelector('.current_image');
-    inner_buffer.width = $image.clientWidth;
-    inner_buffer.height = $image.clientHeight;
+    inner_buffer.width = $current_image.clientWidth;
+    inner_buffer.height = $current_image.clientHeight;
     const ctx = inner_buffer.getContext('2d');
-    ctx.drawImage($image, 0, 0, $image.clientWidth, $image.clientHeight);
+    ctx.drawImage($current_image, 0, 0, $current_image.clientWidth, $current_image.clientHeight);
 }
 
 /* 이미지 클릭했을 때 색 추출 */
