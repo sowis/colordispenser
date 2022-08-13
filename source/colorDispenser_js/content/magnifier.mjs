@@ -1,6 +1,6 @@
 import * as palette from '/colorDispenser_js/content/palette.mjs';
 
-const magnifier_pixel = 15; // 돋보기 픽셀의 약수로 하기
+const magnifier_pixel = 30; // 돋보기 픽셀의 약수로 하기
 
 let inner_buffer = document.createElement('canvas');
 const $magnifier = document.querySelector('.magnifier');
