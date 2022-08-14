@@ -3,6 +3,7 @@ import * as languages from '/colorDispenser_js/languages.mjs';
 import * as clipboard from '/colorDispenser_js/clipboard.mjs';
 
 const $alert_box = document.querySelector('.alert_box');
+const alert_timeout = 1500; // 알림 보여주는 시간(ms)
 
 const alert_status =  {
     0: {
@@ -21,6 +22,7 @@ const alert_status =  {
 export function add_copy_alert(rgb) {
     const message = clipboard.formats[clipboard.target_format](rgb) + ' ' + languages.language_module.str_10;
 
+    /* $alert 만들기 */
     const $alert = document.createElement('div');
     $alert.classList.add('alert');
 
@@ -35,11 +37,16 @@ export function add_copy_alert(rgb) {
     const $alert_text = document.createElement('div');
     $alert_text.classList.add('alert_text');
     $alert_text.textContent = message;
-    console.log(message);
 
     $alert.appendChild($alert_status_image);
     $alert.appendChild($alert_color);
     $alert.appendChild($alert_text);
+    /***************/
 
-    $alert_box.appendChild($alert);
+    $alert_box.insertBefore($alert, $alert_box.firstChild); // 알림 보여주기
+    setTimeout(alert_remove, alert_timeout, $alert); // 일정시간 후 알림 삭제
+}
+
+function alert_remove($alert) {
+    $alert.parentNode.removeChild($alert);
 }
