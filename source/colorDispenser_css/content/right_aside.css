@@ -13,6 +13,10 @@
 }
 
 .right_aside .mouse_color_description {
+    margin-bottom: 5px;
+}
+
+.right_aside .mouse_color_display {
     margin-bottom: 10px;
 }
 
@@ -27,10 +31,14 @@
 
 .right_aside .selected_color_description {
     margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.right_aside .selected_color_display {
+    margin-bottom: 10px;
 }
 
 .right_aside > .selected_color {
-    margin-top: 10px;
     margin-bottom: 20px;
     width: 150px;
     height: 150px;
