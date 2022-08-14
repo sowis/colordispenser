@@ -1,5 +1,6 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
+import * as utilities from '/colorDispenser_js/utilities.mjs';
 
 // h: 0~360
 // s: 0~1
@@ -63,7 +64,7 @@ function chip_mouse_enter(e) {
 
 /* 칩 클릭시 선택된 색으로 지정됨 */
 function chip_click(e) {
-    const rgb = background_string_to_rgb(e.target.style.backgroundColor);
+    const rgb = utilities.background_string_to_rgb(e.target.style.backgroundColor);
     selected_color.set_selected_color(rgb);
 }
 
@@ -76,66 +77,8 @@ function chip_rightclick(e) {
     palette.palette_add_backgroundColor(color);
 }
 
-function rgb_to_hsi(rgb) {
-    const rgb_max = Math.max(rgb.r, rgb.g, rgb.b);
-    const rgb_min = Math.min(rgb.r, rgb.g, rgb.b);
-
-    let i = (rgb.r + rgb.g + rgb.b) / 3;
-    const s = (i == 0) ? 0 : 1 - rgb_min / i;
-    let h = (180 / Math.PI) * Math.acos((rgb.r - 0.5 * rgb.g - 0.5 * rgb.b)  / Math.sqrt(rgb.r * rgb.r + rgb.g * rgb.g + rgb.b * rgb.b - rgb.r * rgb.g - rgb.r * rgb.b - rgb.g * rgb.b));
-
-    if (rgb.b >= rgb.g) {
-        h = 360 - h;
-    }
-
-    if (isNaN(h)) {
-        h = 0;
-    }
-    
-    return { h, s, i };
-}
-
-function hsi_to_rgb(hsi) {
-    if (hsi.h == 0) {
-        const r = hsi.i + 2 * hsi.i * hsi.s;
-        const g = hsi.i - hsi.i * hsi.s;
-        const b = hsi.i - hsi.i * hsi.s;
-        return { r, g, b };
-    }
-    else if (0 < hsi.h && hsi.h < 120) {
-        const r = hsi.i + hsi.i * hsi.s * Math.cos((Math.PI / 180) * hsi.h) / Math.cos((Math.PI / 180) * (60 - hsi.h));
-        const g = hsi.i + hsi.i * hsi.s * (1 - Math.cos((Math.PI / 180) * hsi.h)) / Math.cos((Math.PI / 180) * (60 - hsi.h));
-        const b = hsi.i - hsi.i * hsi.s;
-        return { r, g, b };
-    }
-    else if (hsi.h == 120) {
-        const r = hsi.i - hsi.i * hsi.s;
-        const g = hsi.i + 2 * hsi.i * hsi.s;
-        const b = hsi.i - hsi.i * hsi.s;
-        return { r, g, b };
-    }
-    else if (120 < hsi.h && hsi.h < 240) {
-        const r = hsi.i - hsi.i * hsi.s;
-        const g = hsi.i + hsi.i * hsi.s * Math.cos((Math.PI / 180) * (hsi.h - 120)) / Math.cos((Math.PI / 180) * (180 - hsi.h));
-        const b = hsi.i + hsi.i * hsi.s * (1 - Math.cos((Math.PI / 180) * (hsi.h - 120)) / Math.cos((Math.PI / 180) * (180 - hsi.h)));
-        return { r, g, b };
-    }
-    else if (hsi.h == 240) {
-        const r = hsi.i - hsi.i * hsi.s;
-        const g = hsi.i - hsi.i * hsi.s;
-        const b = hsi.i + 2 * hsi.i * hsi.s;
-        return { r, g, b };
-    }
-    else if (240 < hsi.h && hsi.h < 360) {
-        const r = hsi.i + hsi.i * hsi.s * (1 - Math.cos((Math.PI / 180) * (hsi.h - 240)) / Math.cos((Math.PI / 180) * (300 - hsi.h)));
-        const g = hsi.i - hsi.i * hsi.s;
-        const b = hsi.i + hsi.i * hsi.s * Math.cos((Math.PI / 180) * (hsi.h - 240)) / Math.cos((Math.PI / 180) * (300 - hsi.h));
-        return { r, g, b };
-    }
-}
-
 function similar_color(rgb) {
-    const hsi = rgb_to_hsi(rgb);
+    const hsi = utilities.rgb_to_hsi(rgb);
     let hue_changes = [];
     let saturation_changes = [];
     let intensity_changes = [];
@@ -144,31 +87,20 @@ function similar_color(rgb) {
         const new_hsi = { ...hsi };
         new_hsi.h += (360 / (recomend_number + 1)) * (i + 1);
         new_hsi.h %= 360;
-        hue_changes.push(hsi_to_rgb(new_hsi));
+        hue_changes.push(utilities.hsi_to_rgb(new_hsi));
     }
 
     for (let i = 0; i < recomend_number; ++i) {
         const new_hsi = { ...hsi };
         new_hsi.s = (1 / (recomend_number - 1)) * i;
-        saturation_changes.push(hsi_to_rgb(new_hsi));
+        saturation_changes.push(utilities.hsi_to_rgb(new_hsi));
     }
 
     for (let i = 0; i < recomend_number; ++i) {
         const new_hsi = { ...hsi };
         new_hsi.i = (255 / (recomend_number - 1)) * i;
-        intensity_changes.unshift(hsi_to_rgb(new_hsi));
+        intensity_changes.unshift(utilities.hsi_to_rgb(new_hsi));
     }
 
     return { hue_changes, saturation_changes, intensity_changes };
-}
-
-/* backgroundcolor 문자열을 {r:123, g:252, b:111} 객체로 변환 */
-function background_string_to_rgb(str) {
-    const middle = (str.split('(')[1]).split(')')[0];
-    const arr = middle.split(',');
-    const rgb = {};
-    rgb.r = parseInt(arr[0]);
-    rgb.g = parseInt(arr[1]);
-    rgb.b = parseInt(arr[2]);
-    return rgb;
 }

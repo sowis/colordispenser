@@ -1,4 +1,5 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
+import * as utilities from '/colorDispenser_js/utilities.mjs'
 
 const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
 const void_palette_image = '/images/void_palette.png';
@@ -37,7 +38,7 @@ function palette_event_link() {
 }
 
 export function palette_add_rgb(rgb) {
-    const backgroundColor = rgb_to_background_string(rgb);
+    const backgroundColor = utilities.rgb_to_background_string(rgb);
     palette_add_backgroundColor(backgroundColor);
 }
 
@@ -90,7 +91,7 @@ function palette_chip_click(e) {
     }
 
     last_use_time[idx] = new Date();
-    selected_color.set_selected_color(background_string_to_rgb(palette_colors[idx]));
+    selected_color.set_selected_color(utilities.background_string_to_rgb(palette_colors[idx]));
 }
 
 /* 칩에 마우스 올리면 현재색으로 표시 */
@@ -110,20 +111,4 @@ function palette_chip_disable(e) {
     $palette_chips[idx].style.backgroundColor = palette_chip_default_color;
     $palette_chips[idx].classList.remove('palette_chip_clickable');
     palette_colors[idx] = palette_chip_default_color;
-}
-
-/* backgroundcolor 문자열을 {r:123, g:252, b:111} 객체로 변환 */
-function background_string_to_rgb(str) {
-    const middle = (str.split('(')[1]).split(')')[0];
-    const arr = middle.split(',');
-    const rgb = {};
-    rgb.r = parseInt(arr[0]);
-    rgb.g = parseInt(arr[1]);
-    rgb.b = parseInt(arr[2]);
-    return rgb;
-}
-
-/* rgb 객체를 rgb(255, 1, 235) 형태로 변환 */
-function rgb_to_background_string(rgb) {
-    return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 }

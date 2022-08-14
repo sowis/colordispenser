@@ -1,4 +1,7 @@
-let target_format = 'hex'; // 현재 변환 형식
+import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as alert from '/colordispenser_js/alert.mjs';
+
+export let target_format = 'hex'; // 현재 변환 형식
 
 const $mouse_color = document.querySelector('.mouse_color');
 const $selected_color = document.querySelector('.selected_color');
@@ -8,11 +11,8 @@ const $selected_color = document.querySelector('.selected_color');
 })();
 
 /* target_format과 변환 함수를 매칭 */
-const formats = {
-    'hex': function to_hex(rgb) {
-        const hex = '#' + rgb.r.toString(16) + rgb.g.toString(16) + rgb.b.toString(16);
-        return hex;
-    }
+export const formats = {
+    'hex': utilities.rgb_to_hex_string
 }
 
 // rgb 를 target_format 에 맞게 클립보드로 복사
@@ -39,7 +39,7 @@ function copy(rgb) {
     }
 
     promise.then(() => { // 복사 성공시
-        console.log('클립보드로 복사: ' + content);
+        alert.add_copy_alert(rgb);
     });
 }
 
@@ -50,22 +50,11 @@ function key_down(e) {
             return;
         }
 
-        const rgb = background_string_to_rgb($mouse_color.style.backgroundColor);
+        const rgb = utilities.background_string_to_rgb($mouse_color.style.backgroundColor);
         copy(rgb);
     }
     if (e.ctrlKey && e.key == 'c') {
-        const rgb = background_string_to_rgb($selected_color.style.backgroundColor);
+        const rgb = utilities.background_string_to_rgb($selected_color.style.backgroundColor);
         copy(rgb);
     }
-}
-
-/* backgroundcolor 문자열을 {r:123, g:252, b:111} 객체로 변환 */
-function background_string_to_rgb(str) {
-    const middle = (str.split('(')[1]).split(')')[0];
-    const arr = middle.split(',');
-    const rgb = {};
-    rgb.r = parseInt(arr[0]);
-    rgb.g = parseInt(arr[1]);
-    rgb.b = parseInt(arr[2]);
-    return rgb;
 }
