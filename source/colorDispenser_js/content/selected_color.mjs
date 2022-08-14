@@ -1,5 +1,7 @@
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
+import * as utilities from '/colorDispenser_js/utilities.mjs';
 
 const $selected_color = document.querySelector('.selected_color');
 const inner_buffer = document.createElement('canvas');
@@ -17,7 +19,7 @@ $current_image.addEventListener('mouseover', e => {
 
 /* 선택된 색에 마우스 올리면 현재색에 올라감 */
 $selected_color.addEventListener('mouseover', e => {
-    document.querySelector('.mouse_color').style.backgroundColor = e.target.style.backgroundColor;
+    mouse_color.set_mouse_color(utilities.background_string_to_rgb(e.target.style.backgroundColor));
 });
 
 /* 선택된 색 우클릭시 팔레트에 추가 */

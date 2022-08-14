@@ -1,6 +1,7 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
 import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
 
 // h: 0~360
 // s: 0~1
@@ -59,7 +60,7 @@ export function create_color_chips(rgb) {
 
 /* 칩에 커서가 들어왔을 때 마우스 위치색으로 표시 */
 function chip_mouse_enter(e) {
-    document.querySelector('.mouse_color').style.backgroundColor = e.target.style.backgroundColor;
+    mouse_color.set_mouse_color(utilities.background_string_to_rgb(e.target.style.backgroundColor));
 }
 
 /* 칩 클릭시 선택된 색으로 지정됨 */

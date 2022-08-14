@@ -1,12 +1,12 @@
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
-import * as utilities from '/colorDispenser_js/utilities.mjs'
+import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
 
 const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
 const void_palette_image = '/images/void_palette.png';
 
 const $palette = document.querySelector('.palette');
 const palette_chip_count = $palette.children.length;
-const $mouse_color = document.querySelector('.mouse_color');
 
 const palette_colors = []; // 색(backgroundColor)
 const validations = []; // 활성화/비활성화
@@ -96,7 +96,7 @@ function palette_chip_click(e) {
 
 /* 칩에 마우스 올리면 현재색으로 표시 */
 function palette_chip_mouse_in(e) {
-    $mouse_color.style.backgroundColor = e.target.style.backgroundColor;
+    mouse_color.set_mouse_color(utilities.background_string_to_rgb(e.target.style.backgroundColor));
 }
 
 /* 팔레트 칩에서 우클릭시 그 칩은 초기상태로 돌아감 */
