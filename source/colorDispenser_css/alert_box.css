@@ -10,7 +10,7 @@
 .alert {
     padding: 5px 15px;
     margin-bottom: 7px;
-    background-color: var(--background-color);
+    background-color: rgba(239, 238, 238, 0.4);
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
