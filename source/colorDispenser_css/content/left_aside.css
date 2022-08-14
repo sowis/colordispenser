@@ -53,3 +53,20 @@
 .palette_chip_clickable:hover {
     transform: scale(1.2);
 }
+
+.palette_clear_button {
+    padding: 5px 30px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
+    -4px -4px 10px var(--white-shadow-color);
+    transition-duration: 0.1s;
+}
+
+.palette_clear_button:hover {
+    transform: scale(1.1);
+}
+
+.palette_clear_button:active {
+    box-shadow: 4px 4px 10px 0 var(--black-shadow-color) inset,
+    -4px -4px 10px var(--white-shadow-color) inset;
+}

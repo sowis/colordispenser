@@ -6,6 +6,7 @@ const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
 const void_palette_image = '/images/void_palette.png';
 
 const $palette = document.querySelector('.palette');
+const $palette_clear_button = document.querySelector('.palette_clear_button');
 const palette_chip_count = $palette.children.length;
 
 const palette_colors = []; // 색(backgroundColor)
@@ -32,8 +33,16 @@ function palette_init() {
 function palette_event_link() {
     for (const $palette_chip of $palette.children) {
         $palette_chip.addEventListener('click', palette_chip_click);
-        $palette_chip.addEventListener('contextmenu', palette_chip_disable);
+        $palette_chip.addEventListener('contextmenu', e => {
+            e.stopPropagation();
+            e.preventDefault();
+            const idx = $palette_chips.indexOf(e.target);
+            palette_chip_disable(idx);
+        });
+
         $palette_chip.addEventListener('mouseover', palette_chip_mouse_in);
+
+        $palette_clear_button.addEventListener('click', palette_clear);
     }
 }
 
@@ -100,15 +109,18 @@ function palette_chip_mouse_in(e) {
 }
 
 /* 팔레트 칩에서 우클릭시 그 칩은 초기상태로 돌아감 */
-function palette_chip_disable(e) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    const idx = $palette_chips.indexOf(e.srcElement);
+function palette_chip_disable(idx) {
     validations[idx] = false;
     last_use_time[idx] = new Date();
     $palette_chips[idx].style.backgroundImage = `url(${void_palette_image})`;
     $palette_chips[idx].style.backgroundColor = palette_chip_default_color;
     $palette_chips[idx].classList.remove('palette_chip_clickable');
     palette_colors[idx] = palette_chip_default_color;
+}
+
+/* 팔레트 전부 초기화 */
+function palette_clear() {
+    for (let idx = 0; idx < palette_chip_count; ++idx) {
+        palette_chip_disable(idx);
+    }
 }
