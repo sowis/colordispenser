@@ -7,6 +7,10 @@ const $selected_color = document.querySelector('.selected_color');
 const inner_buffer = document.createElement('canvas');
 const $current_image = document.querySelector('.current_image');
 
+const $selected_color_display_r = document.querySelector('.selected_color_display_r');
+const $selected_color_display_g = document.querySelector('.selected_color_display_g');
+const $selected_color_display_b = document.querySelector('.selected_color_display_b');
+
 set_selected_color({r:255, g:233, b:218}); // 선택 색 초기색상
 
 $current_image.addEventListener('click', e => {
@@ -52,6 +56,10 @@ function img_color_select(mouse_y, mouse_x) {
 /* 선택한 색 표시 */
 export function set_selected_color(rgb) {
     $selected_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+    $selected_color_display_r.textContent = rgb.r;
+    $selected_color_display_g.textContent = rgb.g;
+    $selected_color_display_b.textContent = rgb.b;
 
     const $new_color_chips = similar_color.create_color_chips(rgb);
 
