@@ -1,0 +1,26 @@
+.alert_box {
+    position: absolute;
+    top: 30px;
+    left: calc(50% - (100px / 2));
+    z-index: 1;
+    display:flex;
+    flex-direction: column;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+}
+
+.alert_image {
+    width: 15px;
+    height:15px;
+    margin-right: 10px;
+}
+
+.alert_color {
+    width: 15px;
+    height: 15px;
+    background-color: #111;
+    margin-right: 5px;
+}
