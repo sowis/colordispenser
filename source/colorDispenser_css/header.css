@@ -13,16 +13,15 @@ header {
 }
 
 nav {
+    height: 100%;
     margin-left: auto;
     display: flex;
 }
 
 .help {
     width: 150px;
-    text-align: center;
-}
-
-.language {
-    width: 150px;
-    text-align: center;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
