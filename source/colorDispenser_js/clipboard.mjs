@@ -1,5 +1,6 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as alert from '/colordispenser_js/alert.mjs';
+import * as alert from '/colorDispenser_js/alert.mjs';
+import * as palette from '/colorDispenser_js/content/palette.mjs';
 
 export let target_format = 'hex'; // 현재 변환 형식
 
@@ -43,9 +44,9 @@ function copy(rgb) {
     });
 }
 
-/* 지정한 단축키가 눌렸을 때 클립보드로 복사 */
+/* 지정한 단축키가 눌렸을 때 */
 function key_down(e) {
-    if (e.ctrlKey && e.key == 'x') {
+    if (e.ctrlKey && e.key == 'x') { // ctrl + x: mouse_color 복사
         if ($mouse_color.style.backgroundColor == '') {
             return;
         }
@@ -53,8 +54,11 @@ function key_down(e) {
         const rgb = utilities.background_string_to_rgb($mouse_color.style.backgroundColor);
         copy(rgb);
     }
-    if (e.ctrlKey && e.key == 'c') {
+    else if (e.ctrlKey && e.key == 'c') { // ctrl + c: selected_color 복사
         const rgb = utilities.background_string_to_rgb($selected_color.style.backgroundColor);
         copy(rgb);
+    }
+    else if (e.ctrlKey && e.key == 'q') { // ctrl + q: 팔레트 초기화
+        palette.palette_clear();
     }
 }

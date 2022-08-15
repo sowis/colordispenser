@@ -119,7 +119,7 @@ function palette_chip_disable(idx) {
 }
 
 /* 팔레트 전부 초기화 */
-function palette_clear() {
+export function palette_clear() {
     for (let idx = 0; idx < palette_chip_count; ++idx) {
         palette_chip_disable(idx);
     }
