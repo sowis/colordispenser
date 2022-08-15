@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap'); /* 한글 */
+
 :root {
     --background-color:#efeeee;
     --border-color: rgba(255, 255, 255, 0.3);
@@ -11,6 +13,10 @@
     padding:0;
     cursor: default;
 }
+
+:lang(ko) { font-family: 'Gowun Dodum'; }
+:lang(en) { font-family: 'Arial'; }
+
 
 body {
     display: flex;

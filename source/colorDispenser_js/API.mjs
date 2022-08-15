@@ -1,4 +1,4 @@
-// 웹 루트 = source 폴더라고 생각하면 됨
+// 웹 루트 = source 폴더
 
 export const rest_1 = "/api/rest_1"; 
 // 메인 로직

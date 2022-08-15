@@ -18,6 +18,8 @@
 
 .right_aside .mouse_color_display {
     margin-bottom: 10px;
+    font-family: 'Arial';
+    font-size: 15px;
 }
 
 .right_aside .mouse_color {
@@ -36,6 +38,8 @@
 
 .right_aside .selected_color_display {
     margin-bottom: 10px;
+    font-family: 'Arial';
+    font-size: 15px;
 }
 
 .right_aside > .selected_color {
