@@ -51,6 +51,7 @@
 }
 
 .palette_chip_clickable:hover {
+    cursor: pointer;
     transform: scale(1.2);
 }
 
@@ -68,6 +69,7 @@
 
 .palette_clear_button:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .palette_clear_button:active {
