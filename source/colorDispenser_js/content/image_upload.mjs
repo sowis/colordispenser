@@ -55,7 +55,7 @@ function create_result(rgb) {
     $result_color.classList.add('result_color');
     $result_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 
-    const $color_chips = similar_color.create_similar_colors(rgb);
+    const $color_chips = similar_color.create_color_chips(rgb);
     
     $result.appendChild($result_color);
     $result.appendChild($color_chips);

@@ -24,6 +24,12 @@ article .dispenser .result .result_color {
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+article .dispenser .result .result_color:hover {
+    transform: scale(1.05);
 }
 
 article .dispenser .result .color_chips {
