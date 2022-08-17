@@ -13,6 +13,8 @@
 }
 
 .right_aside .mouse_color_description {
+    font-weight: 800;
+    font-size: 18px;
     margin-bottom: 5px;
 }
 
@@ -32,6 +34,8 @@
 }
 
 .right_aside .selected_color_description {
+    font-weight: 800;
+    font-size: 18px;
     margin-top: 30px;
     margin-bottom: 5px;
 }
