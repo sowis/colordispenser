@@ -87,6 +87,10 @@ export function palette_add_backgroundColor(backgroundColor) {
     $palette_chips[idx].style.backgroundColor = color;
     $palette_chips[idx].style.backgroundImage = '';
     $palette_chips[idx].classList.add('palette_chip_clickable');
+    $palette_chips[idx].classList.add('palette_chip_clickable_rotate');
+    setTimeout(e => {
+        $palette_chips[idx].classList.remove('palette_chip_clickable_rotate');
+    }, 400);
 }
 
 /* 팔레트 칩 클릭시 선택된 색으로 지정 */
