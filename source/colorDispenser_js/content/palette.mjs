@@ -55,6 +55,20 @@ export function palette_add_rgb(rgb) {
 export function palette_add_backgroundColor(backgroundColor) {
     const color = backgroundColor;
 
+    /* 중복 색상인지 검사 */
+    for (let target = 0; target < palette_chip_count; ++target) {
+        if (validations[target] && palette_colors[target] == color) { // 중복 색상이 있으면
+            $palette_chips[target].classList.remove('palette_chip_clickable_rotate'); // 회전 후 종료
+            $palette_chips[target].classList.add('palette_chip_clickable_rotate');
+            setTimeout(e => {
+                $palette_chips[target].classList.remove('palette_chip_clickable_rotate');
+            }, 400);
+
+            return;
+        }
+    }
+    /**********************/
+
     /* 빈 팔레트 공간이 있는지 검사 */
     let idx = -1;
     for (let target = 0; target < palette_chip_count; ++target) {
