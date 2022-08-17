@@ -50,6 +50,18 @@
     transition-duration: 0.1s;
 }
 
+.palette_chip_clickable {
+    animation-name: shake;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.7,-0.12, 0.43, 1.06);
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .palette_chip_clickable:hover {
     cursor: pointer;
     transform: rotate(20deg);
