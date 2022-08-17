@@ -40,7 +40,7 @@ function send_file() {
             $results.appendChild($result);
         }
 
-        let $dispenser = document.querySelector('.dispenser');
+        const $dispenser = document.querySelector('.dispenser');
         $dispenser.innerHTML = '';
         $dispenser.appendChild($results);
     });
