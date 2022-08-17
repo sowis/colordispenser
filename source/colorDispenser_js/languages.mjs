@@ -25,6 +25,8 @@ function language_change(target_module) {
     document.querySelector('.mouse_color_description').textContent = language_module.str_9;
     document.querySelector('.palette_clear_button').textContent = language_module.str_11;
     document.querySelector('.setting_discription').textContent = language_module.str_12;
+    document.querySelector('.copy_form_description').textContent = language_module.str_13;
+    document.querySelector('.magnifier_value_description').textContent = language_module.str_14;
 
     create_language_navigation();
 }

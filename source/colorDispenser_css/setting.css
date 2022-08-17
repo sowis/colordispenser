@@ -52,5 +52,5 @@
 }
 
 .setting_input_label:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
