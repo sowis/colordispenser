@@ -51,6 +51,10 @@
     flex-direction: column;
 }
 
+.setting_input_label {
+    cursor: pointer;
+}
+
 .setting_input_label:not(:last-child) {
     margin-bottom: 10px;
 }

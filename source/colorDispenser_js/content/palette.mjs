@@ -134,6 +134,10 @@ function palette_chip_disable(idx) {
     $palette_chips[idx].style.backgroundColor = palette_chip_default_color;
     $palette_chips[idx].classList.remove('palette_chip_clickable');
     palette_colors[idx] = palette_chip_default_color;
+    $palette_chips[idx].classList.add('palette_chip_shake');
+    setTimeout(e => {
+        $palette_chips[idx].classList.remove('palette_chip_shake');
+    }, 300);
 }
 
 /* 팔레트 전부 초기화 */

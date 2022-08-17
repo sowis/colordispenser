@@ -54,6 +54,20 @@
     transition-duration: 0.1s;
 }
 
+.palette_chip_shake {
+    animation-name: shake;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .palette_chip_clickable_rotate {
     animation-name: rotate;
     animation-duration: 0.4s;
@@ -86,11 +100,12 @@
 }
 
 .palette_clear_button:hover {
-    transform: scale(1.1);
+    color: red;
     cursor: pointer;
 }
 
 .palette_clear_button:active {
+    color: yellow;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color) inset,
     -4px -4px 10px var(--white-shadow-color) inset;
 }
