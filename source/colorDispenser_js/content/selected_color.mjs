@@ -11,7 +11,7 @@ const $selected_color_display_r = document.querySelector('.selected_color_displa
 const $selected_color_display_g = document.querySelector('.selected_color_display_g');
 const $selected_color_display_b = document.querySelector('.selected_color_display_b');
 
-set_selected_color({r:255, g:233, b:218}); // 선택 색 초기색상
+set_selected_color({r:241, g:234, b:211}); // 선택 색 초기색상
 
 $current_image.addEventListener('click', e => {
     img_color_select(e.offsetY, e.offsetX);
