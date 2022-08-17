@@ -52,7 +52,7 @@
 
 .palette_chip_clickable:hover {
     cursor: pointer;
-    transform: rotate(-20deg);
+    transform: rotate(20deg);
 }
 
 .palette_clear_button {

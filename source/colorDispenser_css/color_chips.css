@@ -29,5 +29,5 @@
 }
 
 .color_chips .color_chip:hover {
-    transform: rotate(-20deg);
+    transform: rotate(20deg);
 }
