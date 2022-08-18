@@ -18,6 +18,22 @@ const formats = {
 main();
 
 function main() {
+    for (const $input of document.querySelectorAll('.copy_form_input')) { // 초기 선택된 복사 형식 찾기
+        if ($input.checked) {
+            target_format_function = formats[selected_copy_form()];
+        }
+    }
+
+    for (const $input of document.querySelectorAll('.magnifier_value_input')) { // 초기 선택된 돋보기 배율 찾기
+        if ($input.checked) {
+            magnifier_pixel = parseInt($input.value);
+        }
+    }
+
+    event_match();
+};
+
+function event_match() {
     $setting.addEventListener('click', e => { // 설정페이지 온오프 이벤트 추가
         console.log('a');
         if (is_setting_page_on) {
@@ -31,10 +47,6 @@ function main() {
     });
 
     for (const $input of document.querySelectorAll('.copy_form_input')) {
-        if ($input.checked) { // 초기 선택된 복사 형식 찾기
-            target_format_function = formats[selected_copy_form()];
-        }
-
         $input.addEventListener('change', e => { // 다른걸로 바뀔시 변수 변경 이벤트 추가
             if ($input.checked) {
                 target_format_function = formats[$input.value];
@@ -43,17 +55,18 @@ function main() {
     }
 
     for (const $input of document.querySelectorAll('.magnifier_value_input')) {
-        if ($input.checked) { // 초기 선택된 돋보기 배율 찾기
-            magnifier_pixel = parseInt($input.value);
-        }
-
         $input.addEventListener('change', e => { // 다른걸로 바뀔시 변수 변경 이벤트 추가
             if ($input.checked) {
                 magnifier_pixel = parseInt($input.value);
             }
         });
     }
-};
+
+    document.querySelector('.setting_page_exit').addEventListener('click', e => { // X버튼 누르면 나가기 이벤트 추가
+        setting_page_off(); 
+        is_setting_page_on = false;
+    });
+}
 
 function setting_page_on() {
     $setting_page.classList.add('setting_page_on');
