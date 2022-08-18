@@ -17,15 +17,18 @@
 
 .setting_page {
     width: 70%;
-    padding: 10px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    padding: 10px;
     border: 20px solid var(--background-color);
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
-    display: flex;
+    display: none;
     flex-direction: column;
+}
+
+.setting_page_on {
+    display: flex;
 }
 
 .setting_section {

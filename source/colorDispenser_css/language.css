@@ -45,11 +45,10 @@
 }
 
 .language_item:hover {
-    color: green;
+    color: red;
 }
 
 .language_item:active {
-    color: yellow;
     box-shadow: 3px 3px 5px 0 var(--black-shadow-color) inset,
     -3px -3px 5px var(--white-shadow-color) inset;
 }

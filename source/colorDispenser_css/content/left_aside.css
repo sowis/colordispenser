@@ -106,7 +106,6 @@
 }
 
 .palette_clear_button:active {
-    color: yellow;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color) inset,
     -4px -4px 10px var(--white-shadow-color) inset;
 }

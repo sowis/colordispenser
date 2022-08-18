@@ -36,6 +36,30 @@
                 </div>
             </nav>
         </header>
+
+        <content class="setting_page">
+            <div class="copy_form setting_section">
+                <div class="copy_form_description setting_description">클립보드 복사 형식</div>
+                <div class="copy_form_inputs setting_inputs">
+                    <label class="setting_input_label"><input type="radio" name="copy_form" value="hex_sharp" checked> #a1e62d</label>
+                    <label class="setting_input_label"><input type="radio" name="copy_form" value="hex"> a1e62d</label>
+                    <label class="setting_input_label"><input type="radio" name="copy_form" value="rgb"> rgb(123, 123, 123)</label>
+                    <label class="setting_input_label"><input type="radio" name="copy_form" value="numbers"> 123, 123, 123</label>
+                </div>
+            </div>
+
+            <div class="magnifier_value setting_section">
+                <div class="magnifier_value_description setting_description">돋보기 배율</div>
+                <div class="magnifier_value_inputs setting_inputs">
+                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="3px"> 3px</label>
+                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="5px"> 5px</label>
+                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="10px"> 10px</label>
+                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="30px" checked> 30px</label>
+                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="50px"> 50px</label>
+                </div>
+            </div>
+        </content>
+
         <content class="main">
             <aside class="left_aside">
                 <div class="magnifier_description">돋보기</div>
@@ -139,29 +163,6 @@
             </aside>
         </content>
 
-        <content class="setting_page">
-            <div class="copy_form setting_section">
-                <div class="copy_form_description setting_description">클립보드 복사 형식</div>
-                <div class="copy_form_inputs setting_inputs">
-                    <label class="setting_input_label"><input type="radio" name="copy_form" value="hex_sharp" checked> #a1e62d</label>
-                    <label class="setting_input_label"><input type="radio" name="copy_form" value="hex"> a1e62d</label>
-                    <label class="setting_input_label"><input type="radio" name="copy_form" value="rgb"> rgb(123, 123, 123)</label>
-                    <label class="setting_input_label"><input type="radio" name="copy_form" value="numbers"> 123, 123, 123</label>
-                </div>
-            </div>
-
-            <div class="magnifier_value setting_section">
-                <div class="magnifier_value_description setting_description">돋보기 배율</div>
-                <div class="magnifier_value_inputs setting_inputs">
-                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="3px"> 3px</label>
-                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="5px"> 5px</label>
-                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="10px"> 10px</label>
-                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="30px" checked> 30px</label>
-                    <label class="setting_input_label"><input type="radio" name="magnifier_value" value="50px"> 50px</label>
-                </div>
-            </div>
-        </content>
-
         <footer>
             <div class="footer_left">
                 <div class="process_size">총 29351 GB, 283개의 이미지 처리</div>
@@ -177,5 +178,6 @@
         <script type="module" src="colorDispenser_js/footer.mjs"></script>
         <script type="module" src="colorDispenser_js/clipboard.mjs"></script>
         <script type="module" src="colorDispenser_js/alert.mjs"></script>
+        <script type="module" src="colorDispenser_js/setting.mjs"></script>
     </body>
 </html>
