@@ -27,6 +27,7 @@ function language_change(target_module) {
     document.querySelector('.setting_discription').textContent = language_module.str_12;
     document.querySelector('.copy_form_description').textContent = language_module.str_13;
     document.querySelector('.magnifier_value_description').textContent = language_module.str_14;
+    document.querySelector('.setting_page_description').textContent = language_module.str_12;
 
     create_language_navigation();
 }
