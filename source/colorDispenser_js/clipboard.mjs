@@ -1,8 +1,7 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as alert from '/colorDispenser_js/alert.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
-
-export let target_format = 'hex'; // 현재 변환 형식
+import * as setting from '/colorDispenser_js/setting.mjs';
 
 const $mouse_color = document.querySelector('.mouse_color');
 const $selected_color = document.querySelector('.selected_color');
@@ -11,14 +10,9 @@ const $selected_color = document.querySelector('.selected_color');
     document.querySelector('body').addEventListener('keydown', key_down);
 })();
 
-/* target_format과 변환 함수를 매칭 */
-export const formats = {
-    'hex': utilities.rgb_to_hex_string
-}
-
 // rgb 를 target_format 에 맞게 클립보드로 복사
 function copy(rgb) {
-    const conversion_function = formats[target_format]; // 변환 함수
+    const conversion_function = setting.target_format_function; // 변환 함수
     const content = conversion_function(rgb); // 형식에 맞게 변환
 
     let promise;

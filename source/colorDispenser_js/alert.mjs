@@ -1,6 +1,6 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
-import * as clipboard from '/colorDispenser_js/clipboard.mjs';
+import * as setting from '/colorDispenser_js/setting.mjs';
 
 const $alert_box = document.querySelector('.alert_box');
 const alert_timeout = 1500; // 알림 보여주는 시간(ms)
@@ -20,7 +20,7 @@ const alert_status =  {
 }
 
 export function add_copy_alert(rgb) {
-    const message = clipboard.formats[clipboard.target_format](rgb) + ' ' + languages.language_module.str_10;
+    const message = setting.target_format_function(rgb) + ' ' + languages.language_module.str_10;
 
     /* $alert 만들기 */
     const $alert = document.createElement('div');

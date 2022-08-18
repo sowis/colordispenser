@@ -14,9 +14,19 @@ export function rgb_to_background_string(rgb) {
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 }
 
-/* rgb 객체를 1a3ebd 형태로 변환 */
+/* rgb 객체를 #1a3ebd 형태로 변환 */
 export function rgb_to_hex_string(rgb) {
     return '#' + rgb.r.toString(16) + rgb.g.toString(16) + rgb.b.toString(16);
+}
+
+/* rgb 객체를 1a3ebd 형태로 변환 */
+export function rgb_to_hex_string_no_sharp(rgb) {
+    return rgb.r.toString(16) + rgb.g.toString(16) + rgb.b.toString(16);
+}
+
+/* rgb 객체를 123, 123, 123 형태로 변환 */
+export function rgb_to_numbers(rgb) {
+    return `${rgb.r}, ${rgb.g}, ${rgb.b}`;
 }
 
 export function rgb_to_hsi(rgb) {
