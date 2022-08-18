@@ -14,14 +14,14 @@ export function rgb_to_background_string(rgb) {
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 }
 
-/* rgb 객체를 #1a3ebd 형태로 변환 */
+/* rgb 객체를 #1A3EBD 형태로 변환 */
 export function rgb_to_hex_string(rgb) {
-    return '#' + rgb.r.toString(16).padStart(2, '0') + rgb.g.toString(16).padStart(2, '0') + rgb.b.toString(16).padStart(2, '0');
+    return '#' + rgb.r.toString(16).padStart(2, '0').toUpperCase() + rgb.g.toString(16).padStart(2, '0').toUpperCase() + rgb.b.toString(16).padStart(2, '0').toUpperCase();
 }
 
-/* rgb 객체를 1a3ebd 형태로 변환 */
+/* rgb 객체를 #1A3EBD 형태로 변환 */
 export function rgb_to_hex_string_no_sharp(rgb) {
-    return rgb.r.toString(16).padStart(2, '0') + rgb.g.toString(16).padStart(2, '0') + rgb.b.toString(16).padStart(2, '0');
+    return rgb.r.toString(16).padStart(2, '0').toUpperCase() + rgb.g.toString(16).padStart(2, '0').toUpperCase() + rgb.b.toString(16).padStart(2, '0').toUpperCase();
 }
 
 /* rgb 객체를 123, 123, 123 형태로 변환 */
