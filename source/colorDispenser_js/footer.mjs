@@ -2,14 +2,19 @@ import * as API from './API.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
 
 (function main() {
-    //set_process_string();
+    set_process_string();
 })();
 
 function byte_formatting(byte) {
+    if (isNaN(byte)) {
+        return byte;
+    }
+
     const units = ['byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
     let unit_count = 0;
 
     while (parseInt(byte / 1024) != 0) {
+        alert(byte);
         byte = parseInt(byte / 1024);
         ++unit_count;
     }
@@ -17,18 +22,21 @@ function byte_formatting(byte) {
     return to_string(byte) + ' ' + units[unit_count];
 }
 
-String.format = function() {
-	let args = arguments;
-	return args[0].replace(/{(\d+)}/g, function(match, num) {
-		num = Number(num) + 1;
-		return typeof(args[num]) != undefined ? args[num] : match;
-    });
+if (!String.prototype.format) {
+    String.prototype.format = function() {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, function(match, number) { 
+            return typeof args[number] != 'undefined' ? args[number] : match;
+        });
+    };
 }
 
-function set_process_string() {
-    Promise.all([fetch(API.rest_2), fetch(API.rest_3)]).then(values => {
-        const byte_string = byte_formatting(+(values[0].result));
-        const process_string = languages.language_module.str_2.format(byte_string, values[1].result);
-        document.querySelector('footer .process_size').textContent = process_string;
-    });
+async function set_process_string() {
+    const total_byte = (await fetch(API.rest_2)).json().result;
+    const total_count = (await fetch(API.rest_2)).json().result;
+
+    const byte_string = byte_formatting(+total_byte);
+    const process_string = languages.language_module.str_2.format(byte_string, +total_count);
+    
+    document.querySelector('footer .process_size').textContent = process_string;
 }

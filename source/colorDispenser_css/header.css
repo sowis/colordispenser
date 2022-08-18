@@ -4,6 +4,8 @@ header {
     display: flex;
     align-items: center;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color);
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .icon {

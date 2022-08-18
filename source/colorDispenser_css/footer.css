@@ -5,6 +5,7 @@ footer {
     position: relative;
     display: flex;
     box-shadow: -4px -4px 10px var(--black-shadow-color);
+    font-size: 17px;
 }
 
 .footer_left {
