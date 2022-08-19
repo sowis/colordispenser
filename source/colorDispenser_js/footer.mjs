@@ -33,7 +33,7 @@ if (!String.prototype.format) {
 
 async function set_process_string() {
     const total_byte = (await fetch(API.rest_2)).json().result;
-    const total_count = (await fetch(API.rest_2)).json().result;
+    const total_count = (await fetch(API.rest_3)).json().result;
 
     const byte_string = byte_formatting(+total_byte);
     const process_string = languages.language_module.str_2.format(byte_string, +total_count);
