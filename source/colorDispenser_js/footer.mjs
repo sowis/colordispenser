@@ -2,7 +2,7 @@ import * as API from './API.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
 
 (function main() {
-    set_process_string();
+    update_process_string();
 })();
 
 function byte_formatting(byte) {
@@ -14,12 +14,11 @@ function byte_formatting(byte) {
     let unit_count = 0;
 
     while (parseInt(byte / 1024) != 0) {
-        alert(byte);
         byte = parseInt(byte / 1024);
         ++unit_count;
     }
 
-    return to_string(byte) + ' ' + units[unit_count];
+    return '' + byte + ' ' + units[unit_count];
 }
 
 if (!String.prototype.format) {
@@ -31,9 +30,9 @@ if (!String.prototype.format) {
     };
 }
 
-async function set_process_string() {
-    const total_byte = (await fetch(API.rest_2)).json().result;
-    const total_count = (await fetch(API.rest_3)).json().result;
+async function update_process_string() {
+    const total_byte = (await (await fetch(API.rest_2)).json()).result;
+    const total_count = (await (await fetch(API.rest_3)).json()).result;
 
     const byte_string = byte_formatting(+total_byte);
     const process_string = languages.language_module.str_2.format(byte_string, +total_count);
