@@ -3,6 +3,9 @@ import * as languages from '/colorDispenser_js/languages.mjs';
 import * as API from '/colorDispenser_js/API.mjs';
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
 import * as footer from '/colorDispenser_js/footer.mjs';
+import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
+import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as palette from '/colorDispenser_js/content/palette.mjs';
 
 const accpet_file_type = ['image/png', 'image/jpeg'];
 
@@ -57,6 +60,17 @@ function create_result(rgb) {
     const $result_color = document.createElement('div');
     $result_color.classList.add('result_color');
     $result_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+    $result_color.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        selected_color.set_selected_color(utilities.background_string_to_rgb($result_color.style.backgroundColor));
+    });
+
+    $result_color.addEventListener('contextmenu', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        palette.palette_add_backgroundColor($result_color.style.backgroundColor);
+    });
 
     const $color_chips = similar_color.create_color_chips(rgb);
     
