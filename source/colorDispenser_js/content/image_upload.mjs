@@ -2,6 +2,7 @@ import * as last_images from './last_images.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
 import * as API from '/colorDispenser_js/API.mjs';
 import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
+import * as footer from '/colorDispenser_js/footer.mjs';
 
 const accpet_file_type = ['image/png', 'image/jpeg'];
 
@@ -26,7 +27,7 @@ function upload_event(e) {
     }
 }
 
-/* 메인 로직 수행 후 대표 색 & 추천 색 표시 */
+/* 메인 로직 수행 후 대표 색 & 추천 색 표시, 총 처리량 업데이트 */
 function send_file() {
     let data = new FormData();
     data.append('file', $file_upload_button.files[0]);
@@ -43,6 +44,8 @@ function send_file() {
         const $dispenser = document.querySelector('.dispenser');
         $dispenser.innerHTML = '';
         $dispenser.appendChild($results);
+
+        footer.update_process_string();
     });
 }
 

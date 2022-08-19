@@ -30,7 +30,7 @@ if (!String.prototype.format) {
     };
 }
 
-async function update_process_string() {
+export async function update_process_string() {
     const total_byte = (await (await fetch(API.rest_2)).json()).result;
     const total_count = (await (await fetch(API.rest_3)).json()).result;
 
