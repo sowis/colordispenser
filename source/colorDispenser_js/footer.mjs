@@ -30,12 +30,15 @@ if (!String.prototype.format) {
     };
 }
 
-export async function update_process_string() {
-    const total_byte = (await (await fetch(API.rest_2)).json()).result;
-    const total_count = (await (await fetch(API.rest_3)).json()).result;
-
-    const byte_string = byte_formatting(+total_byte);
-    const process_string = languages.language_module.str_2.format(byte_string, +total_count);
+export function update_process_string() {
+    Promise.all([fetch(API.rest_2), fetch(API.rest_3)])
+    .then(responses => Promise.all(responses.map(res => res.json()))
+        .then(jsons => {
+            console.log(jsons); // test
+            const byte_string = byte_formatting(+jsons[0].result);
+            const process_string = languages.language_module.str_2.format(byte_string, +jsons[1].result);
     
-    document.querySelector('footer .process_size').textContent = process_string;
+            document.querySelector('footer .process_size').textContent = process_string;
+        })
+    )
 }
