@@ -14,7 +14,10 @@ const language_module_cache = {};
 
     fetch(current_module_path)
     .then(res => res.json())
-    .then(language_change);
+    .then(target_module => {
+        language_module_cache[current_module_path] = target_module;
+        language_change(target_module);
+    });
 })();
 
 function language_change(target_module) {
@@ -69,11 +72,11 @@ async function create_language_navigation() {
 
             let target_module;
             if (current_module_path in language_module_cache) { // 모듈 캐싱
-                target_module = language_module_cache.current_module_path;
+                target_module = language_module_cache[current_module_path];
             }
             else {
                 target_module = await (await fetch(current_module_path)).json();
-                language_module_cache.current_module_path = target_module
+                language_module_cache[current_module_path] = target_module
             }
 
             language_change(target_module);

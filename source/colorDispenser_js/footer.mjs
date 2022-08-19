@@ -34,7 +34,6 @@ export function update_process_string() {
     Promise.all([fetch(API.rest_2), fetch(API.rest_3)])
     .then(responses => Promise.all(responses.map(res => res.json()))
         .then(jsons => {
-            console.log(jsons); // test
             const byte_string = byte_formatting(+jsons[0].result);
             const process_string = languages.language_module.str_2.format(byte_string, +jsons[1].result);
     
