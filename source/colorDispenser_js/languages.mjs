@@ -2,9 +2,12 @@ import * as API from '/colorDispenser_js/API.mjs';
 
 const language_path = "/language/";
 const $language = document.querySelector('.language');
+const languages = await (await fetch(API.rest_4)).json();
 
 let current_module_path = language_path + "english.json";
 export let language_module;
+
+const language_module_cache = {};
 
 (function main() {
     set_default_language();
@@ -43,8 +46,6 @@ function set_default_language() {
 }
 
 async function create_language_navigation() {
-    const languages = (await fetch(API.rest_4)).json();
-
     const $language_discription = document.createElement('span');
     $language_discription.classList.add('language_discription');
     $language_discription.textContent = language_module.str_0;
@@ -65,7 +66,16 @@ async function create_language_navigation() {
 
         $language_item.addEventListener('click', async e => { // 클릭시 언어 변경 이벤트 추가
             current_module_path = language_path + language + '.json';
-            const target_module = (await fetch(current_module_path)).json();
+
+            let target_module;
+            if (current_module_path in language_module_cache) { // 모듈 캐싱
+                target_module = language_module_cache.current_module_path;
+            }
+            else {
+                target_module = await (await fetch(current_module_path)).json();
+                language_module_cache.current_module_path = target_module
+            }
+
             language_change(target_module);
         });
 
@@ -73,6 +83,7 @@ async function create_language_navigation() {
         ++language_number;
     }
 
+    $language.innerHTML = '';
     $language.appendChild($language_discription);
     $language.appendChild($language_items);
 }
