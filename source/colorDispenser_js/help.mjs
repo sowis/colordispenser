@@ -5,6 +5,8 @@ const help_resources = [
     { "img": "/images/help/0.png", "str": "str_15" },
     { "img": "/images/help/1.png", "str": "str_16" },
     { "img": "/images/help/2.png", "str": "str_17" },
+    { "img": "/images/help/3.png", "str": "str_18" },
+    { "img": "/images/help/4.png", "str": "str_19" }
 ];
 
 const $help = document.querySelector('.help'); // 도움말 버튼
@@ -41,7 +43,7 @@ function event_match() {
 /* 이미지, 설명 및 앞뒤 버튼 이벤트 설정 */
 export function set_help_page(page) {
     $help_image.src = help_resources[page].img;
-    $help_content.textContent = languages.language_module[help_resources[page].str];
+    $help_content.innerHTML = languages.language_module[help_resources[page].str];
 
     $help_back.classList.remove('help_button_disabled');
     $help_forward.classList.remove('help_button_disabled');
