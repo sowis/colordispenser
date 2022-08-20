@@ -1,5 +1,6 @@
 import * as API from '/colorDispenser_js/API.mjs';
 import * as footer from '/colorDispenser_js/footer.mjs';
+import * as help from '/colorDispenser_js/help.mjs';
 
 const language_path = "/language/";
 const $language = document.querySelector('.language');
@@ -37,6 +38,7 @@ function language_change(target_module) {
     document.querySelector('.setting_page_description').textContent = language_module.str_12;
 
     footer.update_process_string();
+    help.set_help_page(help.current_page);
     create_language_navigation();
 }
 
