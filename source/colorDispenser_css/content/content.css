@@ -3,5 +3,9 @@
     margin-bottom: 50px;
     width: 70%;
     position: relative;
+    display: none;
+}
+
+.main_page_on {
     display: flex;
 }

@@ -19,7 +19,6 @@
 :lang(ko) { font-family: 'Gowun Dodum'; }
 :lang(en) { font-family: 'Arial'; }
 
-
 body {
     display: flex;
     flex-direction: column;

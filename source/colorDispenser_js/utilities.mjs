@@ -29,6 +29,32 @@ export function rgb_to_numbers(rgb) {
     return `${rgb.r}, ${rgb.g}, ${rgb.b}`;
 }
 
+const $main_page = document.querySelector('.main');
+const $setting_page = document.querySelector('.setting_page');
+const $help_page = document.querySelector('.help_page');
+
+/* 메인페이지, 설정페이지, 도움말 페이지 등 모든 페이지 off */
+function all_page_off() {
+    $setting_page.classList.remove('setting_page_on');
+    $help_page.classList.remove('help_page_on');
+    $main_page.classList.remove('main_page_on');
+}
+
+export function goto_main_page() {
+    all_page_off();
+    $main_page.classList.add('main_page_on');
+}
+
+export function goto_setting_page() {
+    all_page_off();
+    $setting_page.classList.add('setting_page_on');
+}
+
+export function goto_help_page() {
+    all_page_off();
+    $help_page.classList.add('help_page_on');
+}
+
 export function rgb_to_hsi(rgb) {
     const rgb_max = Math.max(rgb.r, rgb.g, rgb.b);
     const rgb_min = Math.min(rgb.r, rgb.g, rgb.b);

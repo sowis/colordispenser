@@ -7,7 +7,12 @@
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
+    display: none;
     flex-direction: column;
+}
+
+.help_page_on {
+    display: flex;
 }
 
 .help_header {
