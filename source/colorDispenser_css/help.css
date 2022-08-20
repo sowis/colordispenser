@@ -65,6 +65,16 @@
     justify-content: space-between;
 }
 
+.help_back:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.help_forward:hover {
+    color: red;
+    cursor: pointer;
+}
+
 .help_image_cover {
     padding: 50px;
     border: 1px solid var(--background-color);
