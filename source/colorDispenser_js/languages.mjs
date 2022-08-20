@@ -1,4 +1,5 @@
 import * as API from '/colorDispenser_js/API.mjs';
+import * as footer from '/colorDispenser_js/footer.mjs';
 
 const language_path = "/language/";
 const $language = document.querySelector('.language');
@@ -35,6 +36,7 @@ function language_change(target_module) {
     document.querySelector('.magnifier_value_description').textContent = language_module.str_14;
     document.querySelector('.setting_page_description').textContent = language_module.str_12;
 
+    footer.update_process_string();
     create_language_navigation();
 }
 
