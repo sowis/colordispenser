@@ -11,6 +11,10 @@
     cursor: pointer;
 }
 
+.setting_button_on {
+    color:red;
+}
+
 .setting_page {
     width: 70%;
     margin-top: 50px;

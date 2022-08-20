@@ -1,3 +1,20 @@
+.help {
+    width: 150px;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help:hover {
+    color:red;
+    cursor: pointer;
+}
+
+.help_button_on {
+    color:red;
+}
+
 .help_page {
     width: 70%;
     margin-top: 50px;

@@ -33,11 +33,17 @@ const $main_page = document.querySelector('.main');
 const $setting_page = document.querySelector('.setting_page');
 const $help_page = document.querySelector('.help_page');
 
+const $setting_button = document.querySelector('.setting');
+const $help_button = document.querySelector('.help');
+
 /* 메인페이지, 설정페이지, 도움말 페이지 등 모든 페이지 off */
 function all_page_off() {
     $setting_page.classList.remove('setting_page_on');
     $help_page.classList.remove('help_page_on');
     $main_page.classList.remove('main_page_on');
+
+    $setting_button.classList.remove('setting_button_on');
+    $help_button.classList.remove('help_button_on');
 }
 
 export function goto_main_page() {
@@ -48,11 +54,13 @@ export function goto_main_page() {
 export function goto_setting_page() {
     all_page_off();
     $setting_page.classList.add('setting_page_on');
+    $setting_button.classList.add('setting_button_on');
 }
 
 export function goto_help_page() {
     all_page_off();
     $help_page.classList.add('help_page_on');
+    $help_button.classList.add('help_button_on');
 }
 
 export function rgb_to_hsi(rgb) {
