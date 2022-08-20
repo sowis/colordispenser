@@ -63,11 +63,19 @@ export function set_help_page(page) {
 }
 
 function to_next_page() {
+    if (current_page == help_resources.length - 1) {
+        return;
+    }
+
     set_help_page(current_page + 1);
     ++current_page;
 }
 
 function to_last_page() {
+    if (current_page == 0) {
+        return;
+    }
+    
     set_help_page(current_page - 1);
     --current_page;
 }
