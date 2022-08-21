@@ -1,10 +1,6 @@
 import * as API from './API.mjs';
 import * as languages from '/colorDispenser_js/languages.mjs';
 
-(function main() {
-    update_process_string();
-})();
-
 /* 253 GB 형식 */
 function byte_formatting(byte) {
     if (isNaN(byte)) {
