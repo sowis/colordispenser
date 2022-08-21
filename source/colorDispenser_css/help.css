@@ -38,6 +38,8 @@
     padding-right: 30px;
     margin-bottom: 15px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .help_description {
@@ -45,8 +47,12 @@
     font-size: 18px;
 }
 
+.help_page_count {
+    font-weight: 600;
+    font-size: 18px;
+}
+
 .help_exit {
-    margin-left: auto;
     width: 30px;
     height: 30px;
     cursor: pointer;

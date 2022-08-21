@@ -20,6 +20,7 @@ const $help_forward = document.querySelector('.help_forward'); // 앞으로가�
 
 const $help_image = document.querySelector('.help_image'); // 도움말 이미지
 const $help_content = document.querySelector('.help_content'); // 도움말 설명
+const $help_page_count = document.querySelector('.help_page_count'); // 도움말 페이지 진행상황
 
 export let current_page = 0;
 
@@ -59,6 +60,7 @@ function event_match() {
 export function set_help_page(page) {
     $help_image.src = help_resources[page].img;
     $help_content.innerHTML = languages.language_module[help_resources[page].str];
+    $help_page_count.textContent = (page + 1) + '/' + (help_resources.length);
 
     $help_back.classList.remove('help_button_disabled');
     $help_forward.classList.remove('help_button_disabled');
