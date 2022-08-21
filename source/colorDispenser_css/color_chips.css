@@ -30,6 +30,11 @@
     animation-iteration-count: 1;
 }
 
+.dark_mode .color_chips .color_chip { /* dark */
+    border: 1px solid var(--dark-background-color-height);
+    box-shadow: 2px 2px 8px 0 var(--dark-black-shadow-color);
+}
+
 .color_chips .color_chip:hover {
     transform: rotate(20deg);
 }

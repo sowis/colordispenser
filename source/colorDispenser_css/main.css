@@ -14,7 +14,12 @@
 
     --dark-text-color: rgb(255, 255, 255);
     --dark-background-color: rgb(32, 32, 32);
-    
+    --dark-background-color-height: rgb(46, 47, 52);
+    --dark-black-shadow-color: rgba(0, 0, 0, 0.5);
+    --dark-float-shadow-color: rgba(0, 0, 0, 0.5);
+    --dark-palette-chip-background-color: rgb(46, 47, 52);
+    --dark-alert-background-color: rgba(46, 47, 52, 0.4);
+    --dark-button-active-color: red;
 }
 
 * {
@@ -25,6 +30,10 @@
     font-size: 16px;
     user-select: none;
     color: var(--text-color);
+}
+
+.dark_mode * {
+    color: var(--dark-text-color);
 }
 
 :lang(ko) { font-family: 'Gowun Dodum'; }
@@ -38,4 +47,8 @@ body {
     position:relative;
     min-height: 100vh;
     background-color: var(--background-color);
+}
+
+.dark_mode {
+    background-color: var(--dark-background-color);
 }

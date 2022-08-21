@@ -8,6 +8,11 @@ footer {
     font-size: 17px;
 }
 
+.dark_mode footer { /* dark */
+    background-color: var(--dark-background-color-height);
+    box-shadow: -4px -4px 20px var(--dark-black-shadow-color);
+}
+
 .footer_left {
     width: 500px;
     display: flex;

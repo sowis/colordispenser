@@ -8,6 +8,11 @@ header {
     font-size: 18px;
 }
 
+.dark_mode header { /* dark */
+    background-color: var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
+}
+
 .icon {
     flex: none;
     width: 150px;

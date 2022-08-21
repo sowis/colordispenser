@@ -27,6 +27,11 @@ article .dispenser .result .result_color {
     transition-duration: 0.1s;
 }
 
+.dark_mode article .dispenser .result .result_color { /* dark */
+    border: 10px solid var(--dark-background-color);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
+}
+
 article .dispenser .result .result_color:hover {
     transform: scale(1.05);
 }

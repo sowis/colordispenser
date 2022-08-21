@@ -11,8 +11,16 @@
     cursor: pointer;
 }
 
+.dark_mode .help:hover { /* dark */
+    color:var(--dark-button-active-color);
+}
+
 .help_button_on {
     color:var(--button-active-color);
+}
+
+.dark_mode .help_button_on { /* dark */
+    color:var(--dark-button-active-color);
 }
 
 .help_page {
@@ -27,6 +35,12 @@
     -4px -4px 10px var(--white-shadow-color);
     display: none;
     flex-direction: column;
+}
+
+.dark_mode .help_page { /* dark */
+    background-color: var(--dark-background-color-height);
+    border: 20px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
 }
 
 .help_page_on {
@@ -95,6 +109,11 @@
         -4px -4px 10px var(--white-shadow-color);
 }
 
+.dark_mode .help_image_cover { /* dark */
+    border: 1px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
+}
+
 .help_image {
     width: auto;
     height: auto;
@@ -111,4 +130,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dark_mode .help_content_cover { /* dark */
+    border: 1px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
 }

@@ -17,7 +17,11 @@
     align-items: center;
     animation-name: alert_show;
     animation-duration: 1.5s;
+}
 
+.dark_mode .alert { /* dark */
+    background-color: var(--dark-alert-background-color);
+    box-shadow: 3px 3px 5px 0 var(--dark-float-shadow-color);
 }
 
 @keyframes alert_show {

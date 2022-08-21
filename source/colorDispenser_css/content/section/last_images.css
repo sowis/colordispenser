@@ -10,6 +10,11 @@
     align-items: center;
 }
 
+.dark_mode .last_image_box { /* dark */
+    border: 20px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 15px 0 var(--dark-black-shadow-color);
+}
+
 .last_image_description {
     font-weight: 800;
     font-size: 18px;

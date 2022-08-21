@@ -12,6 +12,11 @@
     flex-direction: column;
 }
 
+.dark_mode .left_aside { /* dark */
+    background-color: var(--dark-background-color-height);
+    box-shadow: 5px 5px 10px 0 var(--dark-float-shadow-color);
+}
+
 .magnifier_description {
     font-weight: 800;
     font-size: 18px;
@@ -25,6 +30,11 @@
     border-radius: 30px;
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
     -4px -4px 10px var(--white-shadow-color);
+}
+
+.dark_mode .magnifier { /* dark */
+    border: 10px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
 }
 
 .palette_description {
@@ -53,6 +63,12 @@
     -3px -3px 1px var(--chip-shadow-color);
     transition-duration: 0.1s;
     background-color: var(--palette-chip-background-color);
+}
+
+.dark_mode .palette_chip { /* dark */
+    border: 1px solid var(--dark-background-color-height);
+    box-shadow: 3px 3px 8px 0 var(--dark-black-shadow-color);
+    background-color: var(--dark-palette-chip-background-color);
 }
 
 .palette_chip_shake {
@@ -101,6 +117,10 @@
     font-size: 14px;
 }
 
+.dark_mode .palette_clear_button { /* dark */
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color);
+}
+
 .palette_clear_button:hover {
     color: var(--button-active-color);
     cursor: pointer;
@@ -109,4 +129,8 @@
 .palette_clear_button:active {
     box-shadow: 4px 4px 10px 0 var(--black-shadow-color) inset,
     -4px -4px 10px var(--white-shadow-color) inset;
+}
+
+.dark_mode .palette_clear_button:active { /* dark */
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color) inset;
 }
