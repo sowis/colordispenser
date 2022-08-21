@@ -63,7 +63,6 @@ function event_match() {
     }
 
     $dark_mode_input.addEventListener('change', e => { 
-        console.log(e) // test
         if ($dark_mode_input.checked) {
             dark_mode_on();
         }

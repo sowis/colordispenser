@@ -11,6 +11,7 @@
     --chip-shadow-color: rgba(255, 255, 255, 0.6);
     --alert-background-color: rgba(239, 238, 238, 0.4);
     --palette-chip-background-color: rgb(239, 238, 238);
+    --mode-change-button-color: rgb(239, 238, 238);
 
     --dark-text-color: rgb(255, 255, 255);
     --dark-background-color: rgb(32, 32, 32);
@@ -20,6 +21,7 @@
     --dark-palette-chip-background-color: rgb(46, 47, 52);
     --dark-alert-background-color: rgba(46, 47, 52, 0.4);
     --dark-button-active-color: red;
+    --dark-mode-change-button-color: rgb(46, 47, 52);
 }
 
 * {

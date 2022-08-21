@@ -123,3 +123,51 @@
     'GRAD' 0,
     'opsz' 24
   }
+
+.dark_mode_input {
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--background-color);
+    border: 2px solid var(--background-color);
+    box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
+    -4px -4px 10px var(--white-shadow-color),
+    4px 4px 10px 0 var(--black-shadow-color) inset,
+    -4px -4px 10px var(--white-shadow-color) inset,
+    4px 4px 10px 0 var(--black-shadow-color),
+    -4px -4px 10px var(--white-shadow-color),
+    4px 4px 10px 0 var(--black-shadow-color) inset,
+    -4px -4px 10px var(--white-shadow-color) inset;
+    position: relative;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.dark_mode .dark_mode_input { /* dark */
+    background-color: var(--dark-background-color-height);
+    border: 2px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 10px 0 var(--dark-black-shadow-color),
+    4px 4px 10px 0 var(--dark-black-shadow-color) inset,
+    4px 4px 10px 0 var(--dark-black-shadow-color),
+    4px 4px 10px 0 var(--dark-black-shadow-color) inset;
+}
+
+.dark_mode_input::before {
+    content: url('/images/sun.png');
+    position: absolute;  
+    width: 35px;
+    height: 35px;
+    background-color: var(--mode-change-button-color);
+    border-radius: 35px;
+    top: 5px;
+    left: 8px;
+    transition-property: left;
+    transition-duration: 0.4s;
+}
+
+.dark_mode .dark_mode_input::before {
+    content: url('/images/moon.png');
+    left: 50px;
+    background-color: var(--dark-mode-change-button-color);
+}
