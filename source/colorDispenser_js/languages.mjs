@@ -37,6 +37,7 @@ function language_change(target_module) {
     document.querySelector('.magnifier_value_description').textContent = language_module.str_14;
     document.querySelector('.setting_page_description').textContent = language_module.str_12;
     document.querySelector('.help_description').textContent = language_module.str_3;
+    document.querySelector('.dark_mode_description').textContent = language_module.str_21;
 
     footer.update_process_string();
     help.set_help_page(help.current_page);
