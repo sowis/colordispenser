@@ -10,8 +10,8 @@
 .alert {
     padding: 5px 15px;
     margin-bottom: 7px;
-    background-color: rgba(239, 238, 238, 0.4);
-    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--alert-background-color);
+    box-shadow: 3px 3px 5px 0 var(--float-shadow-color);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -44,6 +44,5 @@
 .alert_color {
     width: 15px;
     height: 15px;
-    background-color: #111;
     margin-right: 5px;
 }

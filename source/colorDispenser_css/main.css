@@ -5,6 +5,10 @@
     --border-color: rgba(255, 255, 255, 0.3);
     --white-shadow-color: rgba(255, 255, 255, 1);
     --black-shadow-color: rgba(0, 0, 0, 0.1);
+    --button-active-color: red;
+    --float-shadow-color: rgba(0, 0, 0, 0.2);
+    --chip-shadow-color: rgba(255, 255, 255, 0.6);
+    --alert-background-color: rgba(239, 238, 238, 0.4);
 }
 
 * {

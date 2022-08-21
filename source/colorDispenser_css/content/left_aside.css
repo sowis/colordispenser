@@ -5,7 +5,7 @@
     padding: 15px;
     width: 200px;
     background-color: var(--background-color);
-    box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 30px 0 var(--float-shadow-color);
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
     border-radius: 5px;
     position:relative;
     box-shadow: 3px 3px 1px 0 var(--black-shadow-color),
-    -3px -3px 1px rgba(255, 255, 255, 0.6);
+    -3px -3px 1px var(--chip-shadow-color);
     transition-duration: 0.1s;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .palette_clear_button:hover {
-    color: red;
+    color: var(--button-active-color);
     cursor: pointer;
 }
 

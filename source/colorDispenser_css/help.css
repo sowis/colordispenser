@@ -7,12 +7,12 @@
 }
 
 .help:hover {
-    color:red;
+    color:var(--button-active-color);
     cursor: pointer;
 }
 
 .help_button_on {
-    color:red;
+    color:var(--button-active-color);
 }
 
 .help_page {
@@ -59,7 +59,7 @@
 }
 
 .help_exit:hover {
-    color: red;
+    color: var(--button-active-color);
 }
 
 .help_main {
@@ -73,12 +73,12 @@
 }
 
 .help_back:hover {
-    color: red;
+    color: var(--button-active-color);
     cursor: pointer;
 }
 
 .help_forward:hover {
-    color: red;
+    color: var(--button-active-color);
     cursor: pointer;
 }
 

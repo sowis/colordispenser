@@ -7,12 +7,12 @@
 }
 
 .setting:hover {
-    color:red;
+    color:var(--button-active-color);
     cursor: pointer;
 }
 
 .setting_button_on {
-    color:red;
+    color:var(--button-active-color);
 }
 
 .setting_page {
@@ -53,7 +53,7 @@
 }
 
 .setting_page_exit:hover {
-    color: red;
+    color: var(--button-active-color);
 }
 
 .setting_section {

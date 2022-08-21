@@ -19,11 +19,10 @@
 .color_chips .color_chip {
     width: 80%;
     height: 12%;
-    background-color: rgba(0, 0, 0, 0);
     border: 1px solid var(--background-color);
     border-radius: 5px;
     box-shadow: 3px 3px 1px 0 var(--black-shadow-color),
-    -3px -3px 1px rgba(255, 255, 255, 0.6);
+    -3px -3px 1px var(--chip-shadow-color);
     transition-duration: 0.1s;
     cursor: pointer;
     animation-name: shake;

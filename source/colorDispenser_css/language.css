@@ -16,7 +16,7 @@
     background-color: var(--background-color);
     border: 10px solid var(--background-color);
     border-radius: 20px;
-    box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 30px 0 var(--float-shadow-color);
     top: 99%;
     transform: scaleY(0);
     transition-property: transform;
@@ -45,7 +45,7 @@
 }
 
 .language_item:hover {
-    color: red;
+    color: var(--button-active-color);
 }
 
 .language_item:active {
@@ -54,7 +54,7 @@
 }
 
 .language:hover .language_discription{
-    color: red;
+    color: var(--button-active-color);
 }
 
 .language:hover .language_items {
