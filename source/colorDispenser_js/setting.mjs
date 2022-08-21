@@ -1,7 +1,11 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 
+const $body = document.querySelector('body');
+
 const $setting = document.querySelector('.setting');
 const $setting_page = document.querySelector('.setting_page');
+
+const $dark_mode_input = document.querySelector('.dark_mode_input');
 
 export let target_format_function; // 현재 변환 형식
 export let magnifier_pixel; // 돋보기 픽셀 수
@@ -58,6 +62,16 @@ function event_match() {
         });
     }
 
+    $dark_mode_input.addEventListener('change', e => { 
+        console.log(e) // test
+        if ($dark_mode_input.checked) {
+            dark_mode_on();
+        }
+        else {
+            dark_mode_off();
+        }
+    });
+
     document.querySelector('.setting_page_exit').addEventListener('click', e => { // X버튼 누르면 나가기 이벤트 추가
         utilities.goto_main_page();
     });
@@ -69,4 +83,12 @@ function selected_copy_form() {
             return $input.value;
         }
     }
+}
+
+function dark_mode_on() {
+    $body.classList.add('dark_mode');
+}
+
+function dark_mode_off() {
+    $body.classList.remove('dark_mode');
 }
