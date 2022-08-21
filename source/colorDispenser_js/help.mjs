@@ -10,6 +10,7 @@ const help_resources = [
     { "img": "/images/help/5.png", "str": "str_20" }
 ];
 
+const $body = document.querySelector('body');
 const $help = document.querySelector('.help'); // 도움말 버튼
 
 const $help_page = document.querySelector('.help_page'); // 도움말 페이지
@@ -39,6 +40,19 @@ function event_match() {
     document.querySelector('.help_exit').addEventListener('click', e => { // X버튼 누르면 나가기 이벤트 추가
         utilities.goto_main_page();
     });
+
+    $body.addEventListener('keydown', e => { // 설정페이지가 열린상태에서 방향키로 페이지 넘어갈 수 있게 하기
+        if ($help_page.classList.contains('help_page_on') == false) {
+            return;
+        }
+
+        if (e.code == "ArrowRight") {
+            to_next_page();
+        }
+        else if (e.code == "ArrowLeft") {
+            to_last_page();
+        }
+    })
 }
 
 /* 이미지, 설명 및 앞뒤 버튼 이벤트 설정 */
