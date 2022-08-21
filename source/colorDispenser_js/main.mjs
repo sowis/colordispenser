@@ -1,6 +1,7 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 
 const $body = document.querySelector('body');
+const $icon = document.querySelector('.icon');
 
 (function main() {
     utilities.goto_main_page();
@@ -10,4 +11,6 @@ const $body = document.querySelector('body');
             utilities.goto_main_page();
         }
     });
+
+    $icon.addEventListener('click', utilities.goto_main_page);
 })();
