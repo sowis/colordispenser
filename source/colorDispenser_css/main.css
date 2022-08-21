@@ -30,7 +30,6 @@
     font-size: 16px;
     user-select: none;
     color: var(--text-color);
-    transition-duration: 0.3s;
 }
 
 .dark_mode * {
