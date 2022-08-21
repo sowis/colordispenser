@@ -6,7 +6,8 @@ const help_resources = [
     { "img": "/images/help/1.png", "str": "str_16" },
     { "img": "/images/help/2.png", "str": "str_17" },
     { "img": "/images/help/3.png", "str": "str_18" },
-    { "img": "/images/help/4.png", "str": "str_19" }
+    { "img": "/images/help/4.png", "str": "str_19" },
+    { "img": "/images/help/5.png", "str": "str_20" }
 ];
 
 const $help = document.querySelector('.help'); // 도움말 버튼
