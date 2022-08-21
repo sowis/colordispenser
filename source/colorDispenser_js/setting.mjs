@@ -3,8 +3,6 @@ import * as utilities from '/colorDispenser_js/utilities.mjs';
 const $setting = document.querySelector('.setting');
 const $setting_page = document.querySelector('.setting_page');
 
-let is_setting_page_on = document.querySelector('.setting_page').classList.contains('setting_page_on');
-
 export let target_format_function; // 현재 변환 형식
 export let magnifier_pixel; // 돋보기 픽셀 수
 
