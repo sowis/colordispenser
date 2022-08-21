@@ -52,6 +52,7 @@
     box-shadow: 3px 3px 1px 0 var(--black-shadow-color),
     -3px -3px 1px var(--chip-shadow-color);
     transition-duration: 0.1s;
+    background-color: var(--palette-chip-background-color);
 }
 
 .palette_chip_shake {
