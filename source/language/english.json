@@ -15,11 +15,11 @@
     "str_12": "setting",
     "str_13": "Clipboard copy format (ctrl + x, ctrl + c)",
     "str_14": "Magnification",
-    "str_15": "번역필요함!!",
-    "str_16": "번역필요함!!",
-    "str_17": "번역필요함!!",
-    "str_18": "번역필요함!!",
-    "str_19": "번역필요함!!",
-    "str_20": "번역필요함!!",
+    "str_15": "It's a magnifying glass that you can zoom in around when you hover over the center image.<br>You can adjust the scale in Settings.",
+    "str_16": "A palette for storing frequently used colors.<br>You can recall the color to the palette by clicking on it.<br>You can delete the color on the palette by right-clicking it.<br>You can empty the palette by pressing the initialization button (ctrl + q).",
+    "str_17": "Indicates the color where the mouse is located.<br>You can copy the current color to the clipboard by pressing ctrl + x.",
+    "str_18": "Indicates the selected color.<br>Click on top of a color to save the color.<br>You can copy the selected color to the clipboard by pressing ctrl + c.",
+    "str_19": "Represents previously uploaded images.<br>Click to recall the image.<br>Right-click to delete the image.",
+    "str_20": "The current image.<br>When you upload an image, the representative color of the image appears.<br>You can drag and drop images or upload images using the Upload button.",
     "str_21": "Night mode"
 }

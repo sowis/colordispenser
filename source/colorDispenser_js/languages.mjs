@@ -49,6 +49,9 @@ function set_default_language() {
     if (current_language.startsWith("ko")) {
         current_module_path = language_path + "한국어.json";
     }
+    else if (current_language.startsWith("jp")) {
+        current_module_path = language_path + "日本語.json";
+    }
     else {
         current_module_path = language_path + "english.json";
     }
