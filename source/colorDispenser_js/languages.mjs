@@ -55,6 +55,12 @@ function set_default_language() {
     else if (current_language.startsWith("cn")) {
         current_module_path = language_path + "中文(简体).json";
     }
+    else if (current_language.startsWith("es")) {
+        current_module_path = language_path + "español.json";
+    }
+    else if (current_language.startsWith("fr")) {
+        current_module_path = language_path + "français.json";
+    }
     else {
         current_module_path = language_path + "english.json";
     }
