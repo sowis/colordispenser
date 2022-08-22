@@ -49,12 +49,13 @@
 
 .help_header {
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .help_description {
@@ -65,6 +66,10 @@
 .help_page_count {
     font-weight: 600;
     font-size: 18px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .help_exit {
