@@ -61,6 +61,9 @@ function set_default_language() {
     else if (current_language.startsWith("fr")) {
         current_module_path = language_path + "français.json";
     }
+    else if (current_language.startsWith("de")) {
+        current_module_path = language_path + "Deutsche.json";
+    }
     else {
         current_module_path = language_path + "english.json";
     }
