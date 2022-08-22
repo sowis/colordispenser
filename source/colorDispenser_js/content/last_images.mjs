@@ -3,6 +3,8 @@ const default_image = 'images/no_last_image.png';
 const last_images = [];
 const $last_images = document.querySelector('.last_images');
 
+const $previewImage = document.querySelector('.current_image');
+
 (function main() {
     for (let i = 0; i < max_image_count; ++i) {
         last_images.push(default_image);
@@ -75,7 +77,6 @@ function rendering() {
 }
 
 function last_image_clicked(e) {
-    const $previewImage = document.querySelector('.current_image');
     $previewImage.src = e.srcElement.src;
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" }); // 맨 위로 스크롤
 }
