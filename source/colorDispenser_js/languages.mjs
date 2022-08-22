@@ -64,6 +64,9 @@ function set_default_language() {
     else if (current_language.startsWith("de")) {
         current_module_path = language_path + "Deutsche.json";
     }
+    else if (current_language.startsWith("ru")) {
+        current_module_path = language_path + "Русский.json";
+    }
     else {
         current_module_path = language_path + "english.json";
     }
