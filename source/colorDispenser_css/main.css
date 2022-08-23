@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap'); /* 한글 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap'); /* 중국어(간체) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap'); /* 중국어(번체) */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap'); /* 일본어 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap'); /* 러시아어 */
 
 :root {
     --text-color: rgb(0, 0, 0);
@@ -40,6 +44,12 @@
 
 :lang(ko) { font-family: 'Gowun Dodum'; }
 :lang(en) { font-family: 'Arial'; }
+:lang(cn) { font-family: 'Noto Sans SC', 'Noto Serif TC'; }
+:lang(jp) { font-family: 'Zen Maru Gothic'; }
+:lang(de) { font-family: 'Arial'; }
+:lang(es) { font-family: 'Arial'; }
+:lang(fr) { font-family: 'Arial'; }
+:lang(ru) { font-family: 'Roboto Condensed'; }
 
 body {
     display: flex;
