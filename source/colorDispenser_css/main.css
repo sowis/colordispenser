@@ -42,14 +42,14 @@
     color: var(--dark-text-color);
 }
 
-:lang(ko) { font-family: 'Gowun Dodum'; }
+:lang(ko) { font-family: 'Arial','Gowun Dodum'; }
 :lang(en) { font-family: 'Arial'; }
-:lang(cn) { font-family: 'Noto Sans SC', 'Noto Serif TC'; }
-:lang(jp) { font-family: 'Zen Maru Gothic'; }
+:lang(cn) { font-family: 'Arial','Noto Sans SC', 'Noto Serif TC'; }
+:lang(jp) { font-family: 'Arial', 'Zen Maru Gothic'; }
 :lang(de) { font-family: 'Arial'; }
 :lang(es) { font-family: 'Arial'; }
 :lang(fr) { font-family: 'Arial'; }
-:lang(ru) { font-family: 'Roboto Condensed'; }
+:lang(ru) { font-family: 'Arial', 'Roboto Condensed'; }
 
 body {
     display: flex;
