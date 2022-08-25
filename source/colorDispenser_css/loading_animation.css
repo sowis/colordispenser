@@ -1,4 +1,6 @@
 .loading_animation {
+    margin-top: 100px;
+    margin-bottom: 100px;
     width: 150px;
     height: 150px;
     border: 15px solid var(--loading-background-color);
