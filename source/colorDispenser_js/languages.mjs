@@ -88,7 +88,7 @@ async function create_language_navigation() {
         $language_item.textContent = language;
 
         if ($language_item.textContent == $language_discription.textContent) { // 현재 선택된 언어면 특별한 색상으로 보임
-            $language_item.style.color = 'red';
+            $language_item.style.color = 'var(--selected_language_color)';
         }
 
         $language_item.addEventListener('click', async e => { // 클릭시 언어 변경 이벤트 추가
