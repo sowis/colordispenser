@@ -15,7 +15,6 @@ header {
 
 .icon {
     flex: none;
-    width: 150px;
     height: 100%;
     cursor: pointer;
 }

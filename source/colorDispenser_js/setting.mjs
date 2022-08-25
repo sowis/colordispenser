@@ -1,6 +1,10 @@
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 
+const logo_src = '/images/logo.png';
+const dark_logo_src ='/images/dark_logo.png';
+
 const $body = document.querySelector('body');
+const $icon = document.querySelector('.icon');
 
 const $setting = document.querySelector('.setting');
 const $setting_page = document.querySelector('.setting_page');
@@ -109,10 +113,12 @@ function selected_copy_form() {
 
 function dark_mode_on() {
     $body.classList.add('dark_mode');
+    $icon.src = dark_logo_src;
     localStorage.setItem(key_dark_mode, 'true');
 }
 
 function dark_mode_off() {
     $body.classList.remove('dark_mode');
+    $icon.src = logo_src;
     localStorage.setItem(key_dark_mode, 'false');
 }
