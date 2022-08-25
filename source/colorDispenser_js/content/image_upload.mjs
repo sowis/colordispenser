@@ -6,11 +6,13 @@ import * as footer from '/colorDispenser_js/footer.mjs';
 import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
+import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
 
 const accpet_file_type = ['image/png', 'image/jpeg'];
 
 const $file_upload_button = document.querySelector('.file_upload_button');
 const $current_image = document.querySelector('.current_image');
+const $dispenser = document.querySelector('.dispenser');
 
 $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
@@ -34,6 +36,9 @@ function upload_event(e) {
 function send_file() {
     let data = new FormData();
     data.append('file', $file_upload_button.files[0]);
+
+    $dispenser.appendChild(loading_animation.create_loading_animation());
+
     fetch(API.rest_1, { method: 'POST', body: data })
     .then(res => res.json())
     .then(res => {
@@ -44,7 +49,6 @@ function send_file() {
             $results.appendChild($result);
         }
 
-        const $dispenser = document.querySelector('.dispenser');
         $dispenser.innerHTML = '';
         $dispenser.appendChild($results);
 

@@ -1,0 +1,17 @@
+.loading_animation {
+    width: 150px;
+    height: 150px;
+    border: 15px solid var(--loading-background-color);
+    border-radius: 50%;
+    border-top-color: var(--loading-color);
+    animation: loading_spin 1s ease-in-out infinite;
+}
+
+@keyframes loading_spin {
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
