@@ -110,7 +110,10 @@ $current_image.addEventListener('dragstart', e => {
 $current_image.addEventListener('dragenter', e => {
     e.stopPropagation();
     e.preventDefault();
-    $current_image.classList.add('current_image_dragover');
+
+    if (upload_enable == true) {
+        $current_image.classList.add('current_image_dragover');
+    }
 });
 
 $current_image.addEventListener('dragover', e => {
