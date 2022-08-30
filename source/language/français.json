@@ -22,5 +22,7 @@
     "str_19": "qui représentent les images téléchargées précédemment.<br>Vous pouvez recharger l'image en cliquant dessus.<br>Vous pouvez supprimer l'image avec un clic droit.",
     "str_20": "C'est l'image actuelle.<br>Lorsque vous téléchargez l'image, la couleur représentative de l'image apparaît.<br>Vous pouvez glisser et déposer l'image ou utiliser le bouton de téléchargement pour télécharger l'image.",
     "str_21": "Mode sombre",
-    "str_22": "Annulation du téléchargement"
+    "str_22": "Annulation du téléchargement",
+    "str_23": "Analyse d'image terminée",
+    "str_24": "L'analyse de l'image a échoué"
 }
