@@ -37,6 +37,7 @@ function send_file() {
     let data = new FormData();
     data.append('file', $file_upload_button.files[0]);
 
+    $dispenser.innerHTML = '';
     $dispenser.appendChild(loading_animation.create_loading_animation());
 
     fetch(API.rest_1, { method: 'POST', body: data })
