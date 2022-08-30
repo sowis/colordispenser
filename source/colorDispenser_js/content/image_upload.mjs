@@ -7,7 +7,7 @@ import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
 import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
-import * as alert from '/colorDispenser_js/alert.mjs';
+import * as alerts from '/colorDispenser_js/alert.mjs';
 
 const accpet_file_type = ['image/png', 'image/jpeg']; // 받아들이는 파일 형식
 
@@ -22,7 +22,7 @@ let current_image = $current_image.src;
 
 (function main() {
     if (last_images.get_most_recent_image() != last_images.default_image) { // 저장된 상태가 있으면 불러오기
-        $current_image = last_images.get_most_recent_image();
+        $current_image.src = last_images.get_most_recent_image();
         set_results(last_images.get_most_recent_results());
         current_image = $current_image.src;
     }
@@ -30,18 +30,18 @@ let current_image = $current_image.src;
 
 /* 업로드시 파일 전송 */
 function upload_event(e) {
-    if($file_upload_button.files && $file_upload_button.files[0]) {
-        const reader = new FileReader();
-        reader.readAsDataURL($file_upload_button.files[0]);
-        reader.onload = e => {
-            $current_image.src = e.target.result;
-            current_image = $file_upload_button.files[0];
+    const reader = new FileReader();
 
-            last_images.upload_new_image(e.target.result);
+    reader.addEventListener('load', e => {
+        $current_image.src = e.target.result;
+        current_image = $file_upload_button.files[0];
 
-            send_file(e.target.result);
-        }
-    }
+        last_images.upload_new_image($file_upload_button.files);
+
+        send_file(e.target.result);
+    });
+
+    reader.readAsDataURL($file_upload_button.files[0]);
 }
 
 /* 메인 로직 수행 후 대표 색 & 추천 색 표시, 총 처리량 업데이트, 이전 이미지 업데이트 */
@@ -64,14 +64,14 @@ function send_file(image) {
         set_results(res); // 결과 출력
 
         footer.update_process_string();
-        alert.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
+        alerts.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
     })
     .catch(err => { // 오류 발생시
         if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
         
-        alert.add_message_alert(2, languages.language_module.str_24); // 알림 메시지
+        alerts.add_message_alert(2, languages.language_module.str_24); // 알림 메시지
     });
 }
 
