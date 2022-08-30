@@ -4,7 +4,7 @@ const key_last_rgbs = 'last_results';
 /*******************/
 
 const max_image_count = 5;
-const default_image = 'images/no_last_image.png';
+export const default_image = 'images/no_last_image.png';
 const last_images = [];
 const last_rgbs = [];
 const $last_images = document.querySelector('.last_images');
@@ -31,7 +31,7 @@ const $previewImage = document.querySelector('.current_image');
     rendering();
 })();
 
-export function upload_new_image(files, rgb_array) {
+export function upload_new_image(files) {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = e => {
@@ -50,12 +50,11 @@ export function upload_new_image(files, rgb_array) {
 
         if (same_image_index != null) {
             last_images.splice(same_image_index, 1);
-            last_rgbs.splice(same_image_index, 1);
         }
         /********************************************/
 
         last_images.unshift(e.target.result);
-        last_rgbs.unshift(rgb_array);
+        last_rgbs.unshift([]);
 
         if (last_images.length > max_image_count) {
             last_images.pop();
@@ -65,6 +64,26 @@ export function upload_new_image(files, rgb_array) {
         save_local_storage();
         rendering();
     }
+}
+
+/* 이미지 색 분석 결과를 이미지와 매칭시킴 */
+export function upload_new_result(image, rgbs) {
+    /* 이전 이미지중에 있는 결과인지 찾기 */
+    let target_index = null;
+    for (let i = 0; i < max_image_count; ++i) {
+        if (image == last_images[i]) {
+            target_index = i;
+            break;
+        }
+    }
+
+    if (target_index == null) {
+        return;
+    }
+    /**************************************/
+
+    last_rgbs[target_index] = rgbs;
+    save_local_storage();
 }
 
 /* last images 를 그림 */
@@ -125,4 +144,12 @@ function last_image_remove(e) {
 function save_local_storage() {
     localStorage.setItem(key_last_images, JSON.stringify(last_images));
     localStorage.setItem(key_last_rgbs, JSON.stringify(last_rgbs));
+}
+
+export function get_most_recent_image() {
+    return last_images[0];
+}
+
+export function get_most_recent_results() {
+    return last_rgbs[0];
 }
