@@ -50,7 +50,7 @@ function send_file() {
         $dispenser.appendChild(create_results(res));
 
         footer.update_process_string();
-        last_images.upload_new_image($file_upload_button.files);
+        last_images.upload_new_image($file_upload_button.files, res);
         alert.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
         upload_on(); // 업로드 가능 상태로 전환
     })
