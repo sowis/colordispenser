@@ -38,7 +38,6 @@ function language_change(target_module) {
     document.querySelector('.setting_page_description').textContent = language_module.str_12;
     document.querySelector('.help_description').textContent = language_module.str_3;
     document.querySelector('.dark_mode_description').textContent = language_module.str_21;
-    document.querySelector('.upload_cancel_button').value = language_module.str_22;
 
     footer.update_process_string();
     help.set_help_page(help.current_page);

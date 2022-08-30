@@ -22,3 +22,7 @@ article {
     border: 20px solid var(--dark-background-color-height);
     box-shadow: 5px 5px 20px 0 var(--dark-black-shadow-color);
 }
+
+.file_upload_button {
+    cursor: default;
+}

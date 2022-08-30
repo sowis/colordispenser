@@ -14,11 +14,9 @@ const accpet_file_type = ['image/png', 'image/jpeg']; // 받아들이는 파일 
 const $file_upload_button = document.querySelector('.file_upload_button');
 const $current_image = document.querySelector('.current_image');
 const $dispenser = document.querySelector('.dispenser');
-const $upload_cancel_button = document.querySelector('.upload_cancel_button');
 
 $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
-$upload_cancel_button.addEventListener('click', upload_cancel);
 
 let current_image = $current_image.src;
 
@@ -33,7 +31,6 @@ let current_image = $current_image.src;
 /* 업로드시 파일 전송 */
 function upload_event(e) {
     if($file_upload_button.files && $file_upload_button.files[0]) {
-        upload_off(); // 업로드 불가능 상태로 전환
         const reader = new FileReader();
         reader.readAsDataURL($file_upload_button.files[0]);
         reader.onload = e => {
@@ -68,7 +65,6 @@ function send_file(image) {
 
         footer.update_process_string();
         alert.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
-        upload_on(); // 업로드 가능 상태로 전환
     })
     .catch(err => { // 오류 발생시
         if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
@@ -76,7 +72,6 @@ function send_file(image) {
         }
         
         alert.add_message_alert(2, languages.language_module.str_24); // 알림 메시지
-        upload_on(); // 업로드 가능 상태로 전환
     });
 }
 
