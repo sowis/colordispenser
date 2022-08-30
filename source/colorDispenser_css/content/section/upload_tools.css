@@ -17,10 +17,10 @@
 
 .file_upload_button {
     height: 100%;
-    cursor: pointer;
+    cursor: default;
 }
 
 .upload_cancel_button {
     padding:3px;
-    cursor: pointer;
+    cursor: default;
 }

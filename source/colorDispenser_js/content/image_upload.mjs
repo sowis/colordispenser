@@ -18,8 +18,10 @@ const $upload_cancel_button = document.querySelector('.upload_cancel_button');
 
 $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
+$upload_cancel_button.addEventListener('click', upload_cancel);
 
 let upload_enable = true;
+let current_image = $current_image.src;
 
 /* 업로드시 파일 전송 */
 function upload_event(e) {
@@ -29,6 +31,7 @@ function upload_event(e) {
         reader.readAsDataURL($file_upload_button.files[0]);
         reader.onload = e => {
             $current_image.src = e.target.result;
+            current_image = $file_upload_button.files[0];
 
             send_file();
         }
@@ -46,8 +49,11 @@ function send_file() {
     fetch(API.rest_1, { method: 'POST', body: data })
     .then(res => res.json())
     .then(res => {
-        $dispenser.innerHTML = '';
-        $dispenser.appendChild(create_results(res));
+        if ($file_upload_button.files[0] != current_image) { // 취소했으면 무시
+            return;
+        }
+
+        set_results(res); // 결과 출력
 
         footer.update_process_string();
         last_images.upload_new_image($file_upload_button.files, res);
@@ -60,8 +66,14 @@ function send_file() {
     });
 }
 
+/* rgb 배열을 받아 결과로 출력 */
+export function set_results(rgbs) {
+    $dispenser.innerHTML = '';
+    $dispenser.appendChild(create_results(rgbs));
+}
+
 /* rgb 배열로 $result document fragment 생성 */
-export function create_results(rgbs) {
+function create_results(rgbs) {
     let $results = document.createDocumentFragment();
 
     for (const rgb of res) {
@@ -169,4 +181,10 @@ function upload_off() {
     upload_enable = false;
     $file_upload_button.disabled = true;
     $upload_cancel_button.disabled = false;
+}
+
+function upload_cancel() {
+    $dispenser.innerHTML = '';
+    current_image = null;
+    upload_on();
 }
