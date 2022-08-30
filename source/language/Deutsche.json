@@ -21,5 +21,6 @@
     "str_18": "Gibt die ausgewählte Farbe an.<br>Ein Mausklick auf eine Farbe speichert die Farbe.<br>Sie können die ausgewählte Farbe in die Zwischenablage kopieren, indem Sie ctrl + c drücken.",
     "str_19": "Zeigt die zuvor hochgeladenen Bilder an.<br>Sie können das Bild mit einem Klick wieder laden.<br>Sie können Bilder mit einem Rechtsklick löschen.",
     "str_20": "Das aktuelle Bild.<br>Beim Hochladen eines Bildes wird die repräsentative Farbe des Bildes angezeigt.<br>Sie können Bilder per Drag&Drop hochladen oder die Schaltfläche Upload verwenden.",
-    "str_21": "Dark Modus"
+    "str_21": "Dark Modus",
+    "str_22": "Upload abbrechen"
 }

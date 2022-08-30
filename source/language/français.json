@@ -21,5 +21,6 @@
     "str_18": "Indique la couleur sélectionnée.<br>Si vous cliquez sur la souris sur la couleur, cette couleur sera stockée.<br>Vous pouvez copier la couleur sélectionnée en appuyant sur ctrl + c dans le bloc-notes.",
     "str_19": "qui représentent les images téléchargées précédemment.<br>Vous pouvez recharger l'image en cliquant dessus.<br>Vous pouvez supprimer l'image avec un clic droit.",
     "str_20": "C'est l'image actuelle.<br>Lorsque vous téléchargez l'image, la couleur représentative de l'image apparaît.<br>Vous pouvez glisser et déposer l'image ou utiliser le bouton de téléchargement pour télécharger l'image.",
-    "str_21": "Mode sombre"
+    "str_21": "Mode sombre",
+    "str_22": "Annulation du téléchargement"
 }

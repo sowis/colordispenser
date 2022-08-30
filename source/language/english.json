@@ -21,5 +21,6 @@
     "str_18": "Indicates the selected color.<br>Click on top of a color to save the color.<br>You can copy the selected color to the clipboard by pressing ctrl + c.",
     "str_19": "Represents previously uploaded images.<br>Click to recall the image.<br>Right-click to delete the image.",
     "str_20": "The current image.<br>When you upload an image, the representative color of the image appears.<br>You can drag and drop images or upload images using the Upload button.",
-    "str_21": "Night mode"
+    "str_21": "Night mode",
+    "str_22": "upload cancel"
 }

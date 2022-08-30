@@ -21,5 +21,6 @@
     "str_18": "Indica el color seleccionado.<br>Cuando uno hace clic en el ratón sobre el color, se almacena.<br>Puede copiar el color seleccionado presionando ctrl + c al clipboard.",
     "str_19": "imágenes previamente subidas.<br>haciendo clic en la imagen para recuperar esa imagen.<br>Se puede borrar la imagen con el clic derecho.",
     "str_20": "Esta es la imagen actual.<br>Al subir la imagen, aparece el color representativo de la imagen.<br>Se puede subir la imagen usando el botón de arrastre y subir la imagen.",
-    "str_21": "modo oscuro"
+    "str_21": "modo oscuro",
+    "str_22": "Cancelación de subida"
 }

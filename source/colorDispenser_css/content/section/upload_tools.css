@@ -1,0 +1,26 @@
+.upload_tools {
+    width: 95%;
+    margin-top: 40px;
+    border: 20px solid var(--background-color);
+    border-radius: 30px;
+    box-shadow: 4px 4px 10px 0 var(--black-shadow-color),
+    -4px -4px 10px var(--white-shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dark_mode .upload_tools {
+    border: 20px solid var(--dark-background-color-height);
+    box-shadow: 4px 4px 15px 0 var(--dark-black-shadow-color);
+}
+
+.file_upload_button {
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload_cancel_button {
+    padding:3px;
+    cursor: pointer;
+}
