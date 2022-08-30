@@ -11,7 +11,7 @@ const alert_status =  {
     },
 
     1: {
-        "image": "/images/alert/alert_no.png"
+        "image": "/images/alert/alert_notice.png"
     },
 
     2: {
@@ -40,6 +40,27 @@ export function add_copy_alert(rgb) {
 
     $alert.appendChild($alert_status_image);
     $alert.appendChild($alert_color);
+    $alert.appendChild($alert_text);
+    /***************/
+
+    $alert_box.insertBefore($alert, $alert_box.firstChild); // 알림 보여주기
+    setTimeout(alert_remove, alert_timeout, $alert); // 일정시간 후 알림 삭제
+}
+
+export function add_message_alert(status, message) {
+    /* $alert 만들기 */
+    const $alert = document.createElement('div');
+    $alert.classList.add('alert');
+    
+    const $alert_status_image = document.createElement('img');
+    $alert_status_image.classList.add('alert_status_image');
+    $alert_status_image.src = alert_status[+status].image;
+
+    const $alert_text = document.createElement('div');
+    $alert_text.classList.add('alert_text');
+    $alert_text.textContent = message;
+
+    $alert.appendChild($alert_status_image);
     $alert.appendChild($alert_text);
     /***************/
 

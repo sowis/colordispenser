@@ -7,6 +7,7 @@ import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
 import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
 import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
+import * as alert from '/colorDispenser_js/alert.mjs';
 
 const accpet_file_type = ['image/png', 'image/jpeg']; // 받아들이는 파일 형식
 
@@ -50,9 +51,12 @@ function send_file() {
 
         footer.update_process_string();
         last_images.upload_new_image($file_upload_button.files);
+        alert.add_message_alert(0, '이미지 분석 완료'); // 알림 메시지
         upload_on(); // 업로드 가능 상태로 전환
     })
     .catch(err => { // 오류 발생시
+        console.log('a');
+        alert.add_message_alert(2, '이미지 업로드 중 오류가 발생했습니다'); // 알림 메시지
         upload_on(); // 업로드 가능 상태로 전환
     });
 }
