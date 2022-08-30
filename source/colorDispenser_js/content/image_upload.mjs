@@ -20,7 +20,6 @@ $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
 $upload_cancel_button.addEventListener('click', upload_cancel);
 
-let upload_enable = true;
 let current_image = $current_image.src;
 
 (function main() {
@@ -61,7 +60,7 @@ function send_file(image) {
     .then(res => {
         last_images.upload_new_result(image, res); // 이미지와 결과를 매칭해서 저장
 
-        if ($file_upload_button.files[0] != current_image) { // 취소했으면 무시
+        if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
 
@@ -72,6 +71,10 @@ function send_file(image) {
         upload_on(); // 업로드 가능 상태로 전환
     })
     .catch(err => { // 오류 발생시
+        if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
+            return;
+        }
+        
         alert.add_message_alert(2, languages.language_module.str_24); // 알림 메시지
         upload_on(); // 업로드 가능 상태로 전환
     });
@@ -134,9 +137,7 @@ $current_image.addEventListener('dragenter', e => {
     e.stopPropagation();
     e.preventDefault();
 
-    if (upload_enable == true) {
-        $current_image.classList.add('current_image_dragover');
-    }
+    $current_image.classList.add('current_image_dragover');
 });
 
 $current_image.addEventListener('dragover', e => {
@@ -156,10 +157,6 @@ $current_image.addEventListener('drop', e => {
     e.stopPropagation();
     e.preventDefault();
     $current_image.classList.remove('current_image_dragover');
-
-    if (upload_enable == false) { // 이미지를 업로드할 수 없는 상태일때
-        return;
-    }
 
     const files = e.target.files || e.dataTransfer.files;
  
@@ -181,21 +178,3 @@ $current_image.addEventListener('drop', e => {
     /**************************************/
 });
 /********************************/
-
-function upload_on() {
-    upload_enable = true;
-    $file_upload_button.disabled = false;
-    $upload_cancel_button.disabled = true;
-}
-
-function upload_off() {
-    upload_enable = false;
-    $file_upload_button.disabled = true;
-    $upload_cancel_button.disabled = false;
-}
-
-function upload_cancel() {
-    $dispenser.innerHTML = '';
-    current_image = null;
-    upload_on();
-}
