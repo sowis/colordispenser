@@ -13,11 +13,12 @@ const $selected_color_display_b = document.querySelector('.selected_color_displa
 
 const key_selected_color = 'selected_color';
 
-set_selected_color({r:241, g:234, b:211}); // 선택 색 초기색상
-
 (function main() {
     if (localStorage.getItem(key_selected_color) != null) { // 저장된 색이 있으면 불러오기
-        set_selected_color(localStorage.getItem(key_selected_color));
+        set_selected_color(JSON.parse(localStorage.getItem(key_selected_color)));
+    }
+    else {
+        set_selected_color({r:241, g:234, b:211}); // 선택 색 초기색상
     }
 })();
 
