@@ -11,7 +11,15 @@ const $selected_color_display_r = document.querySelector('.selected_color_displa
 const $selected_color_display_g = document.querySelector('.selected_color_display_g');
 const $selected_color_display_b = document.querySelector('.selected_color_display_b');
 
+const key_selected_color = 'selected_color';
+
 set_selected_color({r:241, g:234, b:211}); // 선택 색 초기색상
+
+(function main() {
+    if (localStorage.getItem(key_selected_color) != null) { // 저장된 색이 있으면 불러오기
+        set_selected_color(localStorage.getItem(key_selected_color));
+    }
+})();
 
 $current_image.addEventListener('click', e => {
     img_color_select(e.offsetY, e.offsetX);
@@ -55,6 +63,7 @@ function img_color_select(mouse_y, mouse_x) {
 
 /* 선택한 색 표시 */
 export function set_selected_color(rgb) {
+    save_local_storage(rgb); // 로컬 스토리지에 선택한 색 저장
     $selected_color.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 
     $selected_color_display_r.textContent = rgb.r;
@@ -68,4 +77,9 @@ export function set_selected_color(rgb) {
 
     $color_chips_parent.insertBefore($new_color_chips, $old_color_chips);
     $color_chips_parent.removeChild($old_color_chips);
+}
+
+/* 로컬 스토리지에 저장 */
+function save_local_storage(rgb) {
+    localStorage.setItem(key_selected_color, JSON.stringify(rgb));
 }
