@@ -23,7 +23,11 @@ let current_image = $current_image.src;
 (function main() {
     if (last_images.get_most_recent_image() != last_images.default_image) { // 저장된 상태가 있으면 불러오기
         $current_image.src = last_images.get_most_recent_image();
-        set_results(last_images.get_most_recent_results());
+
+        if ('r' in last_images.get_most_recent_results()) { // rgb 객체일때
+            set_results(last_images.get_most_recent_results());
+        }
+
         current_image = $current_image.src;
     }
 })();
@@ -85,7 +89,7 @@ export function set_results(rgbs) {
 function create_results(rgbs) {
     let $results = document.createDocumentFragment();
 
-    for (const rgb of res) {
+    for (const rgb of rgbs) {
         const $result = create_result(rgb);
         $results.appendChild($result);
     }

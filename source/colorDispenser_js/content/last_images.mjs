@@ -1,3 +1,5 @@
+import * as image_upload from '/colorDispenser_js/content/image_upload.mjs';
+
 /* 로컬 스토리지 키 */
 const key_last_images = 'last_images';
 const key_last_rgbs = 'last_results';
@@ -8,8 +10,8 @@ export const default_image = 'images/no_last_image.png';
 const last_images = [];
 const last_rgbs = [];
 const $last_images = document.querySelector('.last_images');
-
 const $previewImage = document.querySelector('.current_image');
+const $dispenser = document.querySelector('.dispenser');
 
 (function main() {
     if (localStorage.getItem(key_last_images) != null) { // 저장된 정보가 있으면
@@ -119,7 +121,22 @@ function rendering() {
 }
 
 function last_image_clicked(e) {
-    $previewImage.src = e.srcElement.src;
+    /* 클릭된 오브젝트의 인덱스 찾기 */
+    let index = null;
+    for (let i = 0; i < max_image_count; ++i) {
+        if (last_images[i] == e.srcElement.src) {
+            index = i;
+            break;
+        }
+    }
+    /********************************/
+
+    $previewImage.src = last_images[index]; // 메인 이미지 변경
+    $dispenser.innerHTML = ''; // 결과창 초기화
+    if ('r' in last_rgbs[index]) { // 저장된 결과가 있으면 보여주기
+        image_upload.set_results(last_rgbs[index]);
+    }
+
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" }); // 맨 위로 스크롤
 }
 

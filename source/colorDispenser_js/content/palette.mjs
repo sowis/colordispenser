@@ -9,6 +9,10 @@ const $palette = document.querySelector('.palette');
 const $palette_clear_button = document.querySelector('.palette_clear_button');
 const palette_chip_count = $palette.children.length;
 
+const key_palette_colors = 'palette_colors';
+const key_validations = 'palette_validations';
+const key_last_use_time = 'palette_last_use_times';
+
 const palette_colors = []; // 색(backgroundColor)
 const validations = []; // 활성화/비활성화
 const last_use_time = []; // 마지막으로 사용한 시간
@@ -20,14 +24,58 @@ const $palette_chips = []; // 팔레트 칩 DOM
 })();
 
 function palette_init() {
-    for (const $palette_chip of $palette.children) {
-        $palette_chip.style.backgroundColor = palette_chip_default_color;
-        $palette_chip.style.backgroundImage = `url(${void_palette_image})`;
-        palette_colors.push($palette_chip.style.backgroundColor);
-        validations.push(false);
-        last_use_time.push(new Date());
-        $palette_chips.push($palette_chip);
+    if (localStorage.getItem(key_palette_colors) != null) { // 저장된 데이터가 있을 때 불러오기
+        const saved_palette_colors = JSON.parse(localStorage.getItem(key_palette_colors));
+        const saved_validations = JSON.parse(localStorage.getItem(key_validations));
+        const saved_last_use_time = JSON.parse(localStorage.getItem(key_last_use_time));
+        console.log(saved_palette_colors); // test
+        console.log(saved_validations); // test
+        console.log(saved_last_use_time); // test
+
+        /* 
+        저장된 데이터 길이와 현재 팔레트 수 중 작은 쪽으로 맞춰서 초기화
+        (추후 팔레트 길이의 변동이 있을 수 있으므로)
+         */
+        const end_index = Math.min(saved_palette_colors.length, $palette.children.length); 
+        for (let i = 0; i < end_index; ++i) {
+            palette_colors.push(saved_palette_colors[i]);
+            validations.push(saved_validations[i]);
+            last_use_time.push(saved_last_use_time[i]);
+        }
+        /************************************************/
+
+        /* 저장된 팔레트 수보다 실제 팔레트 수가 많으면 채우기 */
+        for(let i = end_index; i < $palette.children.length; ++i) {
+            palette_colors.push(palette_chip_default_color);
+            validations.push(false);
+            last_use_time.push(new Date(0));
+        }
+        /******************************************************/
     }
+    else { // 저장된 데이터가 없을 때는 초기화
+        for (let i = 0; i < $palette.children.length; ++i) {
+            palette_colors.push(palette_chip_default_color);
+            validations.push(false);
+            last_use_time.push(new Date(0));
+        }
+    }
+
+    /* 데이터와 실제 팔레트 DOM을 매칭 */
+    let index = 0;
+    for (const $palette_chip of $palette.children) {
+        if (validations[index]) {
+            $palette_chip.style.backgroundColor = palette_colors[index];
+            $palette_chip.style.backgroundImage = '';
+        }
+        else {
+            $palette_chip.style.backgroundColor = palette_chip_default_color;
+            $palette_chip.style.backgroundImage = `url(${void_palette_image})`;
+        }
+
+        $palette_chips.push($palette_chip);
+        ++index;
+    }
+    /***********************************/
 }
 
 function palette_event_link() {
@@ -109,6 +157,8 @@ export function palette_add_backgroundColor(backgroundColor) {
     setTimeout(e => {
         $palette_chips[idx].classList.remove('palette_chip_clickable_rotate');
     }, 400);
+
+    save_local_storage(); // 저장
 }
 
 /* 팔레트 칩 클릭시 선택된 색으로 지정 */
@@ -142,6 +192,8 @@ function palette_chip_disable(idx) {
     setTimeout(e => {
         $palette_chips[idx].classList.remove('palette_chip_shake');
     }, 300);
+
+    save_local_storage(); // 저장
 }
 
 /* 팔레트 전부 초기화 */
@@ -149,4 +201,10 @@ export function palette_clear() {
     for (let idx = 0; idx < palette_chip_count; ++idx) {
         palette_chip_disable(idx);
     }
+}
+
+function save_local_storage() {
+    localStorage.setItem(key_palette_colors, JSON.stringify(palette_colors));
+    localStorage.setItem(key_validations, JSON.stringify(validations));
+    localStorage.setItem(key_last_use_time, JSON.stringify(last_use_time));
 }
