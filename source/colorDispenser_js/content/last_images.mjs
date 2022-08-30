@@ -45,35 +45,36 @@ export function upload_new_image(files) {
     }
 }
 
+/* last images 를 그림 */
 function rendering() {
     const fragment = new DocumentFragment();
-        for (const image of last_images) {
-            const $last_image = document.createElement('img');
-            $last_image.classList.add('last_image');
-            $last_image.src = image;
+    for (const image of last_images) {
+        const $last_image = document.createElement('img');
+        $last_image.classList.add('last_image');
+        $last_image.src = image;
 
-            if (image != default_image) {
-                $last_image.classList.add('last_image_clickable');
-                $last_image.addEventListener('click', last_image_clicked);
-                $last_image.addEventListener('contextmenu', e => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    last_image_remove(e);
-                });
-            }
-
-            /* 드래그 막기 */
-            $last_image.addEventListener('dragstart', e => {
+        if (image != default_image) {
+            $last_image.classList.add('last_image_clickable');
+            $last_image.addEventListener('click', last_image_clicked);
+            $last_image.addEventListener('contextmenu', e => {
                 e.stopPropagation();
                 e.preventDefault();
+                last_image_remove(e);
             });
-            /**************/
-            
-            fragment.appendChild($last_image);
         }
 
-        $last_images.innerHTML = '';
-        $last_images.appendChild(fragment);
+        /* 드래그 막기 */
+        $last_image.addEventListener('dragstart', e => {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        /**************/
+            
+        fragment.appendChild($last_image);
+    }
+
+    $last_images.innerHTML = '';
+    $last_images.appendChild(fragment);
 }
 
 function last_image_clicked(e) {

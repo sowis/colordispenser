@@ -8,31 +8,33 @@ import * as utilities from '/colorDispenser_js/utilities.mjs';
 import * as palette from '/colorDispenser_js/content/palette.mjs';
 import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
 
-const accpet_file_type = ['image/png', 'image/jpeg'];
+const accpet_file_type = ['image/png', 'image/jpeg']; // 받아들이는 파일 형식
 
 const $file_upload_button = document.querySelector('.file_upload_button');
 const $current_image = document.querySelector('.current_image');
 const $dispenser = document.querySelector('.dispenser');
+const $upload_cancel_button = document.querySelector('.upload_cancel_button');
 
 $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
 
-/* 업로드 버튼으로 업로드시 메인 미리보기 이미지 표시 */
+let upload_enable = true;
+
+/* 업로드시 파일 전송 */
 function upload_event(e) {
     if($file_upload_button.files && $file_upload_button.files[0]) {
+        upload_off(); // 업로드 불가능 상태로 전환
         const reader = new FileReader();
         reader.readAsDataURL($file_upload_button.files[0]);
         reader.onload = e => {
             $current_image.src = e.target.result;
 
             send_file();
-
-            last_images.upload_new_image($file_upload_button.files);
         }
     }
 }
 
-/* 메인 로직 수행 후 대표 색 & 추천 색 표시, 총 처리량 업데이트 */
+/* 메인 로직 수행 후 대표 색 & 추천 색 표시, 총 처리량 업데이트, 이전 이미지 업데이트 */
 function send_file() {
     let data = new FormData();
     data.append('file', $file_upload_button.files[0]);
@@ -43,18 +45,28 @@ function send_file() {
     fetch(API.rest_1, { method: 'POST', body: data })
     .then(res => res.json())
     .then(res => {
-        let $results = document.createDocumentFragment();
-
-        for (const rgb of res) {
-            const $result = create_result(rgb);
-            $results.appendChild($result);
-        }
-
         $dispenser.innerHTML = '';
-        $dispenser.appendChild($results);
+        $dispenser.appendChild(create_results(res));
 
         footer.update_process_string();
+        last_images.upload_new_image($file_upload_button.files);
+        upload_on(); // 업로드 가능 상태로 전환
+    })
+    .catch(err => { // 오류 발생시
+        upload_on(); // 업로드 가능 상태로 전환
     });
+}
+
+/* rgb 배열로 $result document fragment 생성 */
+export function create_results(rgbs) {
+    let $results = document.createDocumentFragment();
+
+    for (const rgb of res) {
+        const $result = create_result(rgb);
+        $results.appendChild($result);
+    }
+
+    return $results;
 }
 
 /* $result 생성 */
@@ -116,6 +128,10 @@ $current_image.addEventListener('drop', e => {
     e.preventDefault();
     $current_image.classList.remove('current_image_dragover');
 
+    if (upload_enable == false) { // 이미지를 업로드할 수 없는 상태일때
+        return;
+    }
+
     const files = e.target.files || e.dataTransfer.files;
  
     if (files.length > 1) {
@@ -136,3 +152,15 @@ $current_image.addEventListener('drop', e => {
     /**************************************/
 });
 /********************************/
+
+function upload_on() {
+    upload_enable = true;
+    $file_upload_button.disabled = false;
+    $upload_cancel_button.disabled = true;
+}
+
+function upload_off() {
+    upload_enable = false;
+    $file_upload_button.disabled = true;
+    $upload_cancel_button.disabled = false;
+}
