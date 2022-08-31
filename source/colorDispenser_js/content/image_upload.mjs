@@ -18,8 +18,6 @@ const $dispenser = document.querySelector('.dispenser');
 $file_upload_button.accept = accpet_file_type.join(', ');
 $file_upload_button.addEventListener('change', upload_event);
 
-let current_image = $current_image.src;
-
 (function main() {
     if (last_images.get_most_recent_image() != last_images.default_image) { // 저장된 상태가 있으면 불러오기
         $current_image.src = last_images.get_most_recent_image();
@@ -27,8 +25,6 @@ let current_image = $current_image.src;
         if ('r' in last_images.get_most_recent_results()) { // rgb 객체일때
             set_results(last_images.get_most_recent_results());
         }
-
-        current_image = $current_image.src;
     }
 })();
 
@@ -38,7 +34,6 @@ function upload_event(e) {
 
     reader.addEventListener('load', e => {
         $current_image.src = e.target.result;
-        current_image = e.target.result;
 
         last_images.upload_new_image($file_upload_button.files);
 
@@ -61,7 +56,7 @@ export function send_file(image) {
     .then(res => {
         last_images.upload_new_result(image, res); // 이미지와 결과를 매칭해서 저장
 
-        if (image != current_image) { // 다른 이미지로 넘어갔으면 무시
+        if (image != $current_image.src) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
 
@@ -71,10 +66,11 @@ export function send_file(image) {
         alerts.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
     })
     .catch(err => { // 오류 발생시
-        if (image != current_image) { // 다른 이미지로 넘어갔으면 무시
+        if (image != $current_image.src) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
         
+        $dispenser.innerHTML = '';
         alerts.add_message_alert(2, languages.language_module.str_24); // 알림 메시지
     });
 }
