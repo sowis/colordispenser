@@ -38,7 +38,7 @@ function upload_event(e) {
 
     reader.addEventListener('load', e => {
         $current_image.src = e.target.result;
-        current_image = $file_upload_button.files[0];
+        current_image = e.target.result;
 
         last_images.upload_new_image($file_upload_button.files);
 
@@ -49,7 +49,7 @@ function upload_event(e) {
 }
 
 /* 메인 로직 수행 후 대표 색 & 추천 색 표시, 총 처리량 업데이트, 이전 이미지 업데이트 */
-function send_file(image) {
+export function send_file(image) {
     let data = new FormData();
     data.append('file', $file_upload_button.files[0]);
 
@@ -61,7 +61,7 @@ function send_file(image) {
     .then(res => {
         last_images.upload_new_result(image, res); // 이미지와 결과를 매칭해서 저장
 
-        if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
+        if (image != current_image) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
 
@@ -71,7 +71,7 @@ function send_file(image) {
         alerts.add_message_alert(0, languages.language_module.str_23); // 알림 메시지
     })
     .catch(err => { // 오류 발생시
-        if ($file_upload_button.files[0] != current_image) { // 다른 이미지로 넘어갔으면 무시
+        if (image != current_image) { // 다른 이미지로 넘어갔으면 무시
             return;
         }
         

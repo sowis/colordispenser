@@ -1,4 +1,5 @@
 import * as image_upload from '/colorDispenser_js/content/image_upload.mjs';
+import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
 
 /* 로컬 스토리지 키 */
 const key_last_images = 'last_images';
@@ -135,6 +136,9 @@ function last_image_clicked(e) {
     $dispenser.innerHTML = ''; // 결과창 초기화
     if ('r' in last_rgbs[index]) { // 저장된 결과가 있으면 보여주기
         image_upload.set_results(last_rgbs[index]);
+    }
+    else { // 저장된 결과가 없으면 메인 로직 재수행
+        image_upload.send_file(last_images[index]);
     }
 
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" }); // 맨 위로 스크롤

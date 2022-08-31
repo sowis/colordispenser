@@ -28,9 +28,6 @@ function palette_init() {
         const saved_palette_colors = JSON.parse(localStorage.getItem(key_palette_colors));
         const saved_validations = JSON.parse(localStorage.getItem(key_validations));
         const saved_last_use_time = JSON.parse(localStorage.getItem(key_last_use_time));
-        console.log(saved_palette_colors); // test
-        console.log(saved_validations); // test
-        console.log(saved_last_use_time); // test
 
         /* 
         저장된 데이터 길이와 현재 팔레트 수 중 작은 쪽으로 맞춰서 초기화
