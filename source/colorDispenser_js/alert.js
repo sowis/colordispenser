@@ -1,6 +1,6 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as languages from '/colorDispenser_js/languages.mjs';
-import * as setting from '/colorDispenser_js/setting.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as languages from '/colorDispenser_js/languages.js';
+import * as setting from '/colorDispenser_js/setting.js';
 
 const $alert_box = document.querySelector('.alert_box');
 const alert_timeout = 1500; // 알림 보여주는 시간(ms)

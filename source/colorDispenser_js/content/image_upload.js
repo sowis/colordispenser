@@ -1,13 +1,13 @@
-import * as last_images from './last_images.mjs';
-import * as languages from '/colorDispenser_js/languages.mjs';
-import * as API from '/colorDispenser_js/API.mjs';
-import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
-import * as footer from '/colorDispenser_js/footer.mjs';
-import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as palette from '/colorDispenser_js/content/palette.mjs';
-import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
-import * as alerts from '/colorDispenser_js/alert.mjs';
+import * as last_images from './last_images.js';
+import * as languages from '/colorDispenser_js/languages.js';
+import * as API from '/colorDispenser_js/API.js';
+import * as similar_color from '/colorDispenser_js/content/similar_color.js';
+import * as footer from '/colorDispenser_js/footer.js';
+import * as selected_color from '/colorDispenser_js/content/selected_color.js';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as palette from '/colorDispenser_js/content/palette.js';
+import * as loading_animation from '/colorDispenser_js/loading_animation.js';
+import * as alerts from '/colorDispenser_js/alert.js';
 
 const accpet_file_type = ['image/png', 'image/jpeg']; // 받아들이는 파일 형식
 

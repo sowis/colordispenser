@@ -1,5 +1,4 @@
-import * as image_upload from '/colorDispenser_js/content/image_upload.mjs';
-import * as loading_animation from '/colorDispenser_js/loading_animation.mjs';
+import * as image_upload from '/colorDispenser_js/content/image_upload.js';
 
 /* 로컬 스토리지 키 */
 const key_last_images = 'last_images';

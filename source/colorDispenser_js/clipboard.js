@@ -1,7 +1,7 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as alert from '/colorDispenser_js/alert.mjs';
-import * as palette from '/colorDispenser_js/content/palette.mjs';
-import * as setting from '/colorDispenser_js/setting.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as alert from '/colorDispenser_js/alert.js';
+import * as palette from '/colorDispenser_js/content/palette.js';
+import * as setting from '/colorDispenser_js/setting.js';
 
 const $mouse_color = document.querySelector('.mouse_color');
 const $selected_color = document.querySelector('.selected_color');

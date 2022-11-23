@@ -1,4 +1,4 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
 
 const $mouse_color_display_r = document.querySelector('.mouse_color_display_r');
 const $mouse_color_display_g = document.querySelector('.mouse_color_display_g');

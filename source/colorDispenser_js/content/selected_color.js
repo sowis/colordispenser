@@ -1,7 +1,7 @@
-import * as similar_color from '/colorDispenser_js/content/similar_color.mjs';
-import * as palette from '/colorDispenser_js/content/palette.mjs';
-import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
-import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as similar_color from '/colorDispenser_js/content/similar_color.js';
+import * as palette from '/colorDispenser_js/content/palette.js';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.js';
+import * as utilities from '/colorDispenser_js/utilities.js';
 
 const $selected_color = document.querySelector('.selected_color');
 const inner_buffer = document.createElement('canvas');

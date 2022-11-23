@@ -1,6 +1,6 @@
-import * as API from '/colorDispenser_js/API.mjs';
-import * as footer from '/colorDispenser_js/footer.mjs';
-import * as help from '/colorDispenser_js/help.mjs';
+import * as API from '/colorDispenser_js/API.js';
+import * as footer from '/colorDispenser_js/footer.js';
+import * as help from '/colorDispenser_js/help.js';
 
 const language_path = "/language/";
 const $language = document.querySelector('.language');

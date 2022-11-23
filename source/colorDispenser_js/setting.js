@@ -1,4 +1,4 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
 
 const logo_src = '/images/logo.png';
 const dark_logo_src ='/images/dark_logo.png';

@@ -1,4 +1,4 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
 
 const $body = document.querySelector('body');
 const $icon = document.querySelector('.icon');

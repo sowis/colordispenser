@@ -1,5 +1,5 @@
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as languages from '/colorDispenser_js/languages.mjs';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as languages from '/colorDispenser_js/languages.js';
 
 const help_resources = [
     { "img": "/images/help/0.png", "str": "str_15" },

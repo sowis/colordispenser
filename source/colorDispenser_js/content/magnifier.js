@@ -1,6 +1,6 @@
-import * as palette from '/colorDispenser_js/content/palette.mjs';
-import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
-import * as setting from '/colorDispenser_js/setting.mjs';
+import * as palette from '/colorDispenser_js/content/palette.js';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.js';
+import * as setting from '/colorDispenser_js/setting.js';
 
 let inner_buffer = document.createElement('canvas');
 const $magnifier = document.querySelector('.magnifier');

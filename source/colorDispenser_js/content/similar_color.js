@@ -1,7 +1,7 @@
-import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
-import * as palette from '/colorDispenser_js/content/palette.mjs';
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
+import * as selected_color from '/colorDispenser_js/content/selected_color.js';
+import * as palette from '/colorDispenser_js/content/palette.js';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.js';
 
 // h: 0~360
 // s: 0~1

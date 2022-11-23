@@ -1,6 +1,6 @@
-import * as selected_color from '/colorDispenser_js/content/selected_color.mjs';
-import * as utilities from '/colorDispenser_js/utilities.mjs';
-import * as mouse_color from '/colorDispenser_js/content/mouse_color.mjs';
+import * as selected_color from '/colorDispenser_js/content/selected_color.js';
+import * as utilities from '/colorDispenser_js/utilities.js';
+import * as mouse_color from '/colorDispenser_js/content/mouse_color.js';
 
 const palette_chip_default_color = 'rgba(0, 0, 0, 0)'; // 팔레트 초기 색
 const void_palette_image = '/images/void_palette.png';
